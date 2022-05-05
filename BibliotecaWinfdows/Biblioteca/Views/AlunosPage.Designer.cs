@@ -44,6 +44,7 @@
             this.btnBuscar = new System.Windows.Forms.PictureBox();
             this.panelCarregando = new System.Windows.Forms.Panel();
             this.txtCarregamento = new System.Windows.Forms.Label();
+            this.txtQuantidade = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
@@ -56,9 +57,8 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(868, 82);
+            this.panel1.Size = new System.Drawing.Size(923, 67);
             this.panel1.TabIndex = 9;
             // 
             // label1
@@ -66,20 +66,18 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 20);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(9, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 45);
+            this.label1.Size = new System.Drawing.Size(100, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Alunos";
             // 
             // btnAdicionar
             // 
             this.btnAdicionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdicionar.Location = new System.Drawing.Point(535, 90);
-            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdicionar.Location = new System.Drawing.Point(673, 73);
             this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(100, 28);
+            this.btnAdicionar.Size = new System.Drawing.Size(75, 23);
             this.btnAdicionar.TabIndex = 13;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
@@ -88,10 +86,9 @@
             // btnEditar
             // 
             this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditar.Location = new System.Drawing.Point(751, 90);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditar.Location = new System.Drawing.Point(835, 73);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(100, 28);
+            this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 12;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -101,21 +98,20 @@
             // btnRemover
             // 
             this.btnRemover.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRemover.Location = new System.Drawing.Point(643, 90);
-            this.btnRemover.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRemover.Location = new System.Drawing.Point(754, 73);
             this.btnRemover.Name = "btnRemover";
-            this.btnRemover.Size = new System.Drawing.Size(100, 28);
+            this.btnRemover.Size = new System.Drawing.Size(75, 23);
             this.btnRemover.TabIndex = 11;
             this.btnRemover.Text = "Remover";
             this.btnRemover.UseVisualStyleBackColor = true;
             this.btnRemover.Visible = false;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // txtBusca
             // 
-            this.txtBusca.Location = new System.Drawing.Point(11, 92);
-            this.txtBusca.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBusca.Location = new System.Drawing.Point(8, 75);
             this.txtBusca.Name = "txtBusca";
-            this.txtBusca.Size = new System.Drawing.Size(343, 22);
+            this.txtBusca.Size = new System.Drawing.Size(258, 20);
             this.txtBusca.TabIndex = 14;
             this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
             // 
@@ -133,14 +129,14 @@
             this.colTelefone});
             this.listView.GridLines = true;
             this.listView.HideSelection = false;
-            this.listView.Location = new System.Drawing.Point(7, 126);
-            this.listView.Margin = new System.Windows.Forms.Padding(4);
+            this.listView.Location = new System.Drawing.Point(5, 102);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(844, 396);
+            this.listView.Size = new System.Drawing.Size(906, 449);
             this.listView.TabIndex = 16;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
             this.listView.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listView_ItemChecked);
+            this.listView.SelectedIndexChanged += new System.EventHandler(this.listView_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -173,9 +169,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::Biblioteca.Properties.Resources.loading;
-            this.pictureBox1.Location = new System.Drawing.Point(85, 18);
+            this.pictureBox1.Location = new System.Drawing.Point(64, 15);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(76, 71);
+            this.pictureBox1.Size = new System.Drawing.Size(40, 46);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
@@ -183,10 +180,9 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::Biblioteca.Properties.Resources.lupa;
-            this.btnBuscar.Location = new System.Drawing.Point(363, 92);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Location = new System.Drawing.Point(272, 75);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(24, 25);
+            this.btnBuscar.Size = new System.Drawing.Size(18, 20);
             this.btnBuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnBuscar.TabIndex = 15;
             this.btnBuscar.TabStop = false;
@@ -194,29 +190,43 @@
             // 
             // panelCarregando
             // 
+            this.panelCarregando.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelCarregando.Controls.Add(this.txtCarregamento);
             this.panelCarregando.Controls.Add(this.pictureBox1);
-            this.panelCarregando.Location = new System.Drawing.Point(325, 223);
+            this.panelCarregando.Location = new System.Drawing.Point(378, 264);
+            this.panelCarregando.Margin = new System.Windows.Forms.Padding(2);
             this.panelCarregando.Name = "panelCarregando";
-            this.panelCarregando.Size = new System.Drawing.Size(240, 170);
+            this.panelCarregando.Size = new System.Drawing.Size(163, 126);
             this.panelCarregando.TabIndex = 18;
             this.panelCarregando.Visible = false;
             // 
             // txtCarregamento
             // 
             this.txtCarregamento.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtCarregamento.Location = new System.Drawing.Point(0, 108);
+            this.txtCarregamento.Location = new System.Drawing.Point(0, 76);
+            this.txtCarregamento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtCarregamento.Name = "txtCarregamento";
-            this.txtCarregamento.Size = new System.Drawing.Size(240, 62);
+            this.txtCarregamento.Size = new System.Drawing.Size(163, 50);
             this.txtCarregamento.TabIndex = 18;
             this.txtCarregamento.Text = "Carregando...";
             this.txtCarregamento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txtQuantidade
+            // 
+            this.txtQuantidade.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtQuantidade.AutoSize = true;
+            this.txtQuantidade.Location = new System.Drawing.Point(5, 554);
+            this.txtQuantidade.Name = "txtQuantidade";
+            this.txtQuantidade.Size = new System.Drawing.Size(39, 13);
+            this.txtQuantidade.TabIndex = 19;
+            this.txtQuantidade.Text = "0 Itens";
+            // 
             // AlunosPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(868, 534);
+            this.ClientSize = new System.Drawing.Size(923, 576);
+            this.Controls.Add(this.txtQuantidade);
             this.Controls.Add(this.panelCarregando);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.btnBuscar);
@@ -225,7 +235,7 @@
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnRemover);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(570, 430);
             this.Name = "AlunosPage";
             this.Text = "AlunosPage";
             this.panel1.ResumeLayout(false);
@@ -256,5 +266,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelCarregando;
         private System.Windows.Forms.Label txtCarregamento;
+        private System.Windows.Forms.Label txtQuantidade;
     }
 }

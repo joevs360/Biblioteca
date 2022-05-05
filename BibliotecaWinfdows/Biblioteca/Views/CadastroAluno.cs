@@ -21,6 +21,7 @@ namespace Biblioteca.Views
             InitializeComponent();
             this.main = main;
             usuario = new Usuario();
+            
         }
         public CadastroAluno(MainPage main, Usuario usuario)
         {
@@ -29,9 +30,24 @@ namespace Biblioteca.Views
             this.usuario = usuario;
             btnAdicionar.Visible = true;
             ExibirDados();
+            listarRFIDS();
 
         }
-        
+        async void listarRFIDS()
+        {
+            await carregamento(true, "Buscando...");
+            List<RFID> rfids = await Program.Database.GetRFIDs(usuario.ID);
+            await carregamento(true, "Listando...");
+            foreach (var item in rfids)
+            {
+                ListViewItem lvi = new ListViewItem();
+                lvi.SubItems.Add(item.dataCadastro.ToString("dd/MM/yyyy"));
+                lvi.SubItems.Add(item.ID);
+                listView.Items.Add(lvi);
+            }
+            await carregamento(false);
+        }
+
         void ExibirDados()
         {
             txtNome.Text = usuario.Nome;
@@ -46,40 +62,38 @@ namespace Biblioteca.Views
 
         private void listView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(listView.SelectedItems.Count == 0)
+            if(listView.SelectedItems.Count > 0)
             {
-                btnEditar.Visible = false;
-                btnRemover.Visible = false;
-            }
-            else if(listView.SelectedItems.Count > 1)
-            {
-                btnEditar.Visible = true;
                 btnRemover.Visible=false;
             }
             else
             {
-                btnEditar.Visible = true;
-                btnRemover.Visible = true;
+                btnRemover.Visible = false;
             }
         }
 
         private async void btnAdicionar_Click(object sender, EventArgs e)
         {
+            await carregamento(true, "Abrindo cadastro...");
+            
+          
             LeituraRfidPage leituraRfidPage = new LeituraRfidPage(main);
+            await carregamento(true, "Aguardando cadastro...");
             leituraRfidPage.ShowDialog();
             string ID = leituraRfidPage.retorno;
 
             if (!string.IsNullOrEmpty(ID) && !string.IsNullOrEmpty(usuario.RA))
             {
+                await carregamento(true, "Salvando RFID...");
                 RFID rfid = new RFID();
                 rfid.ID = ID;
                 rfid.IdUsuario = usuario.ID;
                 rfid.dataCadastro = DateTime.Now;
                 await Program.Database.SalvarRFID(rfid);
-
+                listarRFIDS();
             }
-            
-
+            await carregamento(false);
+           
         }
 
         private async void btnSalvar_Click(object sender, EventArgs e)
@@ -105,10 +119,23 @@ namespace Biblioteca.Views
         {
 
         }
-
-        private void btnRemover_Click(object sender, EventArgs e)
+        async Task carregamento(bool carregar, string mensagem = "carregando...")
         {
-
+            txtCarregamento.Text = mensagem;
+            panelCarregando.Visible = carregar;
+            await Task.Delay(100);
+        }
+        private async void btnRemover_Click(object sender, EventArgs e)
+        {
+            await carregamento(true, "Listando...");
+            List<string> ids= new List<string>();
+            for(int i = 0; i < listView.CheckedItems.Count; i++)
+            {
+                ids.Add(listView.CheckedItems[i].SubItems[1].Text);
+            }
+            await carregamento(true, "Removendo...");
+            await Program.Database.RemoveRFID(ids);
+            await carregamento(false);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

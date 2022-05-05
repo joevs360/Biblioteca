@@ -13,7 +13,9 @@ namespace Biblioteca.Models
         public int ID { get; set; }
         public string Nome { get; set; }
         public int AutorID { get; set; }
-        public int ISBN { get; set; }
+        public string ISBN { get; set; }
+        public string Editora { get; set; }
+        public int Edicao { get; set; }
         public int QuantidadeTotal { get; set; } // A quantidade disponivel vai ser a subtração desse valor pela quandidade de livro emprestada
 
         

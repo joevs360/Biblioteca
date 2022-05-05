@@ -60,6 +60,8 @@
             // 
             // comboPortas
             // 
+            this.comboPortas.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboPortas.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboPortas.FormattingEnabled = true;
             this.comboPortas.Location = new System.Drawing.Point(107, 62);
             this.comboPortas.Name = "comboPortas";

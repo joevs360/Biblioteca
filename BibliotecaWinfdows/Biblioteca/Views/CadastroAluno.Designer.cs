@@ -45,11 +45,15 @@
             this.colRFID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnAdicionar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
+            this.panelCarregando = new System.Windows.Forms.Panel();
+            this.txtCarregamento = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panelUsuario.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panelCarregando.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -198,8 +202,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.panelCarregando);
             this.panel2.Controls.Add(this.btnAdicionar);
-            this.panel2.Controls.Add(this.btnEditar);
             this.panel2.Controls.Add(this.btnRemover);
             this.panel2.Controls.Add(this.listView);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -217,18 +221,8 @@
             this.btnAdicionar.TabIndex = 8;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
+            this.btnAdicionar.Visible = false;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Location = new System.Drawing.Point(170, 9);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 7;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Visible = false;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnRemover
             // 
@@ -240,6 +234,43 @@
             this.btnRemover.UseVisualStyleBackColor = true;
             this.btnRemover.Visible = false;
             this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
+            // 
+            // panelCarregando
+            // 
+            this.panelCarregando.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelCarregando.Controls.Add(this.txtCarregamento);
+            this.panelCarregando.Controls.Add(this.pictureBox1);
+            this.panelCarregando.Location = new System.Drawing.Point(109, 77);
+            this.panelCarregando.Margin = new System.Windows.Forms.Padding(2);
+            this.panelCarregando.Name = "panelCarregando";
+            this.panelCarregando.Size = new System.Drawing.Size(163, 126);
+            this.panelCarregando.TabIndex = 20;
+            this.panelCarregando.Visible = false;
+            // 
+            // txtCarregamento
+            // 
+            this.txtCarregamento.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtCarregamento.Location = new System.Drawing.Point(0, 76);
+            this.txtCarregamento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.txtCarregamento.Name = "txtCarregamento";
+            this.txtCarregamento.Size = new System.Drawing.Size(163, 50);
+            this.txtCarregamento.TabIndex = 18;
+            this.txtCarregamento.Text = "Carregando...";
+            this.txtCarregamento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::Biblioteca.Properties.Resources.loading;
+            this.pictureBox1.Location = new System.Drawing.Point(64, 15);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 46);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
             // 
             // CadastroAluno
             // 
@@ -257,6 +288,8 @@
             this.panelUsuario.ResumeLayout(false);
             this.panelUsuario.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panelCarregando.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -280,7 +313,9 @@
         private System.Windows.Forms.ColumnHeader colRFID;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnAdicionar;
-        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnRemover;
+        private System.Windows.Forms.Panel panelCarregando;
+        private System.Windows.Forms.Label txtCarregamento;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

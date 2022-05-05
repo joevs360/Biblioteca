@@ -39,6 +39,15 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
+            this.listView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTitulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colAutor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colISBN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Adicionar = new System.Windows.Forms.Button();
+            this.btnRemover = new System.Windows.Forms.Button();
+            this.txtQuantidade = new System.Windows.Forms.Label();
+            this.colEdicao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnLerRFID = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panelUsuario.SuspendLayout();
@@ -158,6 +167,84 @@
             this.txtNome.Size = new System.Drawing.Size(203, 20);
             this.txtNome.TabIndex = 4;
             // 
+            // listView
+            // 
+            this.listView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView.CheckBoxes = true;
+            this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.colTitulo,
+            this.colEdicao,
+            this.colAutor,
+            this.colISBN});
+            this.listView.GridLines = true;
+            this.listView.HideSelection = false;
+            this.listView.Location = new System.Drawing.Point(12, 173);
+            this.listView.Name = "listView";
+            this.listView.Size = new System.Drawing.Size(714, 367);
+            this.listView.TabIndex = 17;
+            this.listView.UseCompatibleStateImageBehavior = false;
+            this.listView.View = System.Windows.Forms.View.Details;
+            this.listView.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listView_ItemChecked);
+            this.listView.SelectedIndexChanged += new System.EventHandler(this.listView_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "";
+            this.columnHeader1.Width = 40;
+            // 
+            // colTitulo
+            // 
+            this.colTitulo.Text = "Título";
+            this.colTitulo.Width = 183;
+            // 
+            // colAutor
+            // 
+            this.colAutor.Text = "Autor";
+            this.colAutor.Width = 225;
+            // 
+            // colISBN
+            // 
+            this.colISBN.Text = "ISBN";
+            this.colISBN.Width = 305;
+            // 
+            // Adicionar
+            // 
+            this.Adicionar.Location = new System.Drawing.Point(12, 147);
+            this.Adicionar.Name = "Adicionar";
+            this.Adicionar.Size = new System.Drawing.Size(75, 23);
+            this.Adicionar.TabIndex = 18;
+            this.Adicionar.Text = "Adicionar";
+            this.Adicionar.UseVisualStyleBackColor = true;
+            this.Adicionar.Click += new System.EventHandler(this.Adicionar_Click);
+            // 
+            // btnRemover
+            // 
+            this.btnRemover.Location = new System.Drawing.Point(94, 147);
+            this.btnRemover.Name = "btnRemover";
+            this.btnRemover.Size = new System.Drawing.Size(75, 23);
+            this.btnRemover.TabIndex = 19;
+            this.btnRemover.Text = "Remover";
+            this.btnRemover.UseVisualStyleBackColor = true;
+            this.btnRemover.Visible = false;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
+            // 
+            // txtQuantidade
+            // 
+            this.txtQuantidade.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtQuantidade.AutoSize = true;
+            this.txtQuantidade.Location = new System.Drawing.Point(12, 543);
+            this.txtQuantidade.Name = "txtQuantidade";
+            this.txtQuantidade.Size = new System.Drawing.Size(39, 13);
+            this.txtQuantidade.TabIndex = 20;
+            this.txtQuantidade.Text = "0 Itens";
+            // 
+            // colEdicao
+            // 
+            this.colEdicao.Text = "Edição";
+            // 
             // btnLerRFID
             // 
             this.btnLerRFID.Image = global::Biblioteca.Properties.Resources.userrfid;
@@ -173,7 +260,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 570);
+            this.ClientSize = new System.Drawing.Size(738, 565);
+            this.Controls.Add(this.txtQuantidade);
+            this.Controls.Add(this.btnRemover);
+            this.Controls.Add(this.Adicionar);
+            this.Controls.Add(this.listView);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -186,6 +277,7 @@
             this.panelUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnLerRFID)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -203,5 +295,14 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.PictureBox btnLerRFID;
+        private System.Windows.Forms.ListView listView;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader colTitulo;
+        private System.Windows.Forms.ColumnHeader colAutor;
+        private System.Windows.Forms.ColumnHeader colISBN;
+        private System.Windows.Forms.Button Adicionar;
+        private System.Windows.Forms.Button btnRemover;
+        private System.Windows.Forms.Label txtQuantidade;
+        private System.Windows.Forms.ColumnHeader colEdicao;
     }
 }

@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioteca.Data;
 using System.IO;
+using Biblioteca.Models;
 
 namespace Biblioteca
 {
     internal static class Program
     {
+        //Listas
+        public static List<Livro> livros = new List<Livro>();
+        public static List<Autor> autores = new List<Autor>();
         /// <summary>
         /// Ponto de entrada principal para o aplicativo.
         /// </summary>

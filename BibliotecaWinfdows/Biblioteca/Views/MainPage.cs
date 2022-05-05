@@ -66,18 +66,31 @@ namespace Biblioteca.Views
 
         private void locacoes_Click(object sender, EventArgs e)
         {
-            //Teste
             EmprestimoCadastroPage emprestimo = new EmprestimoCadastroPage(this);
-            emprestimo.Show();
+            emprestimo.ShowDialog();
         }
 
 
         private void AlunosClick(object sender, EventArgs e)
         {
             AlunosPage alunosPage = new AlunosPage(this);
-            alunosPage.Show();
+            alunosPage.ShowDialog();
         }
 
-       
+        private void LivrosClick(object sender, EventArgs e)
+        {
+            ListaLivroPage listaLivroPage = new ListaLivroPage(false);
+            listaLivroPage.ShowDialog();
+        }
+        private void AutoresClick(object sender, EventArgs e)
+        {
+            ListaAutores listaAutores = new ListaAutores();
+            listaAutores.ShowDialog();
+        }
+
+        private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+
+        }
     }
 }
