@@ -18,10 +18,34 @@ namespace Biblioteca.Data
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<RFID>().Wait();
             database.CreateTableAsync<Usuario>().Wait();
+            database.CreateTableAsync<Emprestimo>().Wait();
+            database.CreateTableAsync<Livro>().Wait();
         }
         public async Task<List<RFID>> GetRFIDs(int idUsuario)
         {
             return await database.Table<RFID>().Where(r => r.IdUsuario == idUsuario).ToListAsync();
+        }
+        public async Task<bool> SalvarRFID(RFID rfid)
+        {
+            try
+            {
+                //Validações
+                if (string.IsNullOrWhiteSpace(rfid.ID))
+                {
+                    MessageBox.Show("Não é possivel salvar um RFID zerado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                if (rfid.IdUsuario == 0)
+                {
+                    MessageBox.Show("Não foi possivel vincular com o id do usuário!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                await database.InsertAsync(rfid);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;            }
         }
         //Usuário
         public async Task<Usuario> GetUsuarioByRFID(string id)
@@ -36,6 +60,10 @@ namespace Biblioteca.Data
         public async Task<Usuario> GetUsuarioByID(int id)
         {
             return await database.Table<Usuario>().Where(u => u.ID == id).FirstOrDefaultAsync();
+        }
+        public async Task<Usuario> GetUsuarioByRA(string ra)
+        {
+            return await database.Table<Usuario>().Where(u => u.RA == ra).FirstOrDefaultAsync();
         }
         public async Task<List<Usuario>> GetAllUsuario(int tipo=1)
         {

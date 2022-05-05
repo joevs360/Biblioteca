@@ -28,14 +28,14 @@ namespace Biblioteca.Views
         }
         void listarUsuarios(string filtro="")
         {
-            listView.Clear();
+            listView.Items.Clear();
             foreach (var item in listUsuario.Where(u=>u.Nome.Contains(filtro) || u.RA.Contains(filtro)))
             {
                 ListViewItem lvi = new ListViewItem();
                 lvi.SubItems.Add(item.RA);
                 lvi.SubItems.Add(item.Nome);
-                lvi.SubItems.Add(item.Telefone);
                 lvi.SubItems.Add(item.Email);
+                lvi.SubItems.Add(item.Telefone);
                 listView.Items.Add(lvi);
             }
         }
@@ -57,24 +57,7 @@ namespace Biblioteca.Views
             }
         }
 
-        private void listView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listView.SelectedItems.Count == 0)
-            {
-                btnEditar.Visible = false;
-                btnRemover.Visible = false;
-            }
-            else if (listView.SelectedItems.Count > 1)
-            {
-                btnEditar.Visible = true;
-                btnRemover.Visible = false;
-            }
-            else
-            {
-                btnEditar.Visible = true;
-                btnRemover.Visible = true;
-            }
-        }
+        
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
@@ -86,6 +69,50 @@ namespace Biblioteca.Views
                 listUsuario = usrs;
                 listarUsuarios();
             }
+        }
+
+        private void listView_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            if (listView.CheckedItems.Count == 0)
+            {
+                btnEditar.Visible = false;
+                btnRemover.Visible = false;
+            }
+            else if (listView.CheckedItems.Count > 1)
+            {
+                btnEditar.Visible = true;
+                btnRemover.Visible = false;
+            }
+            else
+            {
+                btnEditar.Visible = true;
+                btnRemover.Visible = true;
+            }
+        }
+        async Task carregamento(bool carregar, string mensagem = "carregando...")
+        {
+            txtCarregamento.Text = mensagem;
+            panelCarregando.Visible = carregar;
+            await Task.Delay(100);
+        }
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            buscarUsuario();
+        }
+        async void buscarUsuario()
+        {
+            await carregamento(true, "Consultando no banco...");
+            string r = listView.CheckedItems[0].SubItems[1].Text;
+            Usuario usuario = await Program.Database.GetUsuarioByRA(r);
+            if (usuario != null)
+            {
+                CadastroAluno cadastroAluno = new CadastroAluno(main, usuario);
+                await carregamento(true, "Montando tela...");
+                cadastroAluno.Show();
+                
+            }
+            await carregamento(false, "Finalizando...");
+
         }
     }
 }

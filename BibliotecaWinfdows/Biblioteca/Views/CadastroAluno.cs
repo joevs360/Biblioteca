@@ -29,11 +29,13 @@ namespace Biblioteca.Views
             this.usuario = usuario;
             btnAdicionar.Visible = true;
             ExibirDados();
+
         }
+        
         void ExibirDados()
         {
             txtNome.Text = usuario.Nome;
-            txtEmail.Text = usuario.Telefone;
+            txtEmail.Text = usuario.Email;
             txtRA.Text = usuario.RA;
             txtTelefone.Text = usuario.Telefone;
         }
@@ -61,7 +63,7 @@ namespace Biblioteca.Views
             }
         }
 
-        private void btnAdicionar_Click(object sender, EventArgs e)
+        private async void btnAdicionar_Click(object sender, EventArgs e)
         {
             LeituraRfidPage leituraRfidPage = new LeituraRfidPage(main);
             leituraRfidPage.ShowDialog();
@@ -72,6 +74,8 @@ namespace Biblioteca.Views
                 RFID rfid = new RFID();
                 rfid.ID = ID;
                 rfid.IdUsuario = usuario.ID;
+                rfid.dataCadastro = DateTime.Now;
+                await Program.Database.SalvarRFID(rfid);
 
             }
             
