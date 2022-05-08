@@ -40,15 +40,11 @@
             this.colNome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colEmail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colTelefone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnBuscar = new System.Windows.Forms.PictureBox();
-            this.panelCarregando = new System.Windows.Forms.Panel();
-            this.txtCarregamento = new System.Windows.Forms.Label();
             this.txtQuantidade = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.PictureBox();
+            this.carregamento = new Biblioteca.Views.Carregamento();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
-            this.panelCarregando.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -163,19 +159,15 @@
             this.colTelefone.Text = "Telefone";
             this.colTelefone.Width = 274;
             // 
-            // pictureBox1
+            // txtQuantidade
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::Biblioteca.Properties.Resources.loading;
-            this.pictureBox1.Location = new System.Drawing.Point(64, 15);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 46);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 17;
-            this.pictureBox1.TabStop = false;
+            this.txtQuantidade.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtQuantidade.AutoSize = true;
+            this.txtQuantidade.Location = new System.Drawing.Point(5, 554);
+            this.txtQuantidade.Name = "txtQuantidade";
+            this.txtQuantidade.Size = new System.Drawing.Size(39, 13);
+            this.txtQuantidade.TabIndex = 19;
+            this.txtQuantidade.Text = "0 Itens";
             // 
             // btnBuscar
             // 
@@ -188,46 +180,22 @@
             this.btnBuscar.TabStop = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnClick);
             // 
-            // panelCarregando
+            // carregamento
             // 
-            this.panelCarregando.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panelCarregando.Controls.Add(this.txtCarregamento);
-            this.panelCarregando.Controls.Add(this.pictureBox1);
-            this.panelCarregando.Location = new System.Drawing.Point(378, 264);
-            this.panelCarregando.Margin = new System.Windows.Forms.Padding(2);
-            this.panelCarregando.Name = "panelCarregando";
-            this.panelCarregando.Size = new System.Drawing.Size(163, 126);
-            this.panelCarregando.TabIndex = 18;
-            this.panelCarregando.Visible = false;
-            // 
-            // txtCarregamento
-            // 
-            this.txtCarregamento.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtCarregamento.Location = new System.Drawing.Point(0, 76);
-            this.txtCarregamento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.txtCarregamento.Name = "txtCarregamento";
-            this.txtCarregamento.Size = new System.Drawing.Size(163, 50);
-            this.txtCarregamento.TabIndex = 18;
-            this.txtCarregamento.Text = "Carregando...";
-            this.txtCarregamento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtQuantidade
-            // 
-            this.txtQuantidade.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtQuantidade.AutoSize = true;
-            this.txtQuantidade.Location = new System.Drawing.Point(5, 554);
-            this.txtQuantidade.Name = "txtQuantidade";
-            this.txtQuantidade.Size = new System.Drawing.Size(39, 13);
-            this.txtQuantidade.TabIndex = 19;
-            this.txtQuantidade.Text = "0 Itens";
+            this.carregamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.carregamento.Location = new System.Drawing.Point(359, 271);
+            this.carregamento.Name = "carregamento";
+            this.carregamento.Size = new System.Drawing.Size(164, 128);
+            this.carregamento.TabIndex = 20;
+            this.carregamento.Visible = false;
             // 
             // AlunosPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(923, 576);
+            this.Controls.Add(this.carregamento);
             this.Controls.Add(this.txtQuantidade);
-            this.Controls.Add(this.panelCarregando);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBusca);
@@ -240,9 +208,7 @@
             this.Text = "AlunosPage";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
-            this.panelCarregando.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,9 +229,7 @@
         private System.Windows.Forms.ColumnHeader colEmail;
         private System.Windows.Forms.ColumnHeader colTelefone;
         private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panelCarregando;
-        private System.Windows.Forms.Label txtCarregamento;
         private System.Windows.Forms.Label txtQuantidade;
+        private Carregamento carregamento;
     }
 }

@@ -74,7 +74,7 @@ namespace Biblioteca.Views
 
         private async void btnAdicionar_Click(object sender, EventArgs e)
         {
-            await carregamento(true, "Aguardando cadastro...");
+            await carregamento.carregar(true, "Aguardando cadastro...");
             CadastroAluno cadastroAluno = new CadastroAluno(main);
             cadastroAluno.ShowDialog();
             List<Usuario> usrs = cadastroAluno.listUsuario;
@@ -83,7 +83,7 @@ namespace Biblioteca.Views
                 listUsuario = usrs;
                 listarUsuarios();
             }
-            await carregamento(false);
+            await carregamento.carregar(false);
         }
 
         private void listView_ItemChecked(object sender, ItemCheckedEventArgs e)
@@ -105,37 +105,31 @@ namespace Biblioteca.Views
             }
             EscreverQuantidade();
         }
-        async Task carregamento(bool carregar, string mensagem = "carregando...")
-        {
-            txtCarregamento.Text = mensagem;
-            panelCarregando.Visible = carregar;
-            await Task.Delay(100);
-        }
         private void btnEditar_Click(object sender, EventArgs e)
         {
             buscarUsuario();
         }
         async void buscarUsuario()
         {
-            await carregamento(true, "Consultando no banco...");
+            await carregamento.carregar(true, "Consultando no banco...");
             string r = listView.CheckedItems[0].SubItems[1].Text;
             Usuario usuario = await Program.Database.GetUsuarioByRA(r);
             if (usuario != null)
             {
-                await carregamento(true, "Aguardando alterações...");
+                await carregamento.carregar(true, "Aguardando alterações...");
                 CadastroAluno cadastroAluno = new CadastroAluno(main, usuario);
                
                 cadastroAluno.ShowDialog();
                 
             }
-            await carregamento(false, "Finalizando...");
+            await carregamento.carregar(false, "Finalizando...");
 
         }
 
         private async void btnRemover_Click(object sender, EventArgs e)
         {
             bool limpar = false;
-            await carregamento(true, "Deletando usuário...");
+            await carregamento.carregar(true, "Deletando usuário...");
             if (listView.CheckedItems.Count == 1 )
             {
                 string r = listView.CheckedItems[0].SubItems[1].Text;
@@ -147,13 +141,13 @@ namespace Biblioteca.Views
                 List<string> ras = new List<string>();
                 for (int i =0; i< listView.CheckedItems.Count;i++)
                 {
-                    await carregamento(true, $"Deletando usuários...\n {i/listView.CheckedItems.Count*100}%");
+                    await carregamento.carregar(true, $"Deletando usuários...\n {i/listView.CheckedItems.Count*100}%");
                     ras.Add(listView.CheckedItems[i].SubItems[1].Text);
                 }
                 limpar = await Program.Database.RemoverUsuario(ras);
 
             }           
-            await carregamento(false, "Finalizando...");
+            await carregamento.carregar(false, "Finalizando...");
             if (limpar)
             {
                 for (int i = 0; i < listView.CheckedItems.Count; i++)

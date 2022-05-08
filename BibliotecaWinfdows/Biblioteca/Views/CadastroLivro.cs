@@ -34,15 +34,10 @@ namespace Biblioteca.Views
             }
            
         }
-        async Task carregamento(bool carregar, string mensagem = "carregando...")
-        {
-            txtCarregamento.Text = mensagem;
-            panelCarregando.Visible = carregar;
-            await Task.Delay(100);
-        }
+       
         async void buscarLivro(int id)
         {
-            await carregamento(true, "Buscando...");
+            await carregamento1.carregar(true, "Buscando...");
             livro = await Program.Database.GetLivro(id);
             if(livro == null)
             {
@@ -61,7 +56,7 @@ namespace Biblioteca.Views
                 selectAutor.SelectedIndex = Program.autores.IndexOf(Program.autores.First(a => a.Id == livro.AutorID));
             }
            
-            await carregamento(false);
+            await carregamento1.carregar(false);
         }
         async Task listarAutores()
         {
@@ -86,13 +81,13 @@ namespace Biblioteca.Views
                 livro.AutorID = Program.autores[selectAutor.SelectedIndex].Id;
             }
             
-            await carregamento(true, "Salvando alterações...");
+            await carregamento1.carregar(true, "Salvando alterações...");
             if (await Program.Database.SalvarLivro(livro))
             {
                 Program.livros = await Program.Database.GetLivros();
                 this.Close();
             }
-            await carregamento(false);
+            await carregamento1.carregar(false);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

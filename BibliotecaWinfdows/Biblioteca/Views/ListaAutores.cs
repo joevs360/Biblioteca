@@ -27,19 +27,14 @@ namespace Biblioteca.Views
             }
            
         }
-        async Task carregamento(bool carregar, string mensagem = "carregando...")
-        {
-            txtCarregamento.Text = mensagem;
-            panelCarregando.Visible = carregar;
-            await Task.Delay(100);
-        }
+       
 
         async void buscarAutores()
         {
-            await carregamento(true, "Consultando no banco...");
+            await carregamento1.carregar(true, "Consultando no banco...");
             Program.autores = await Program.Database.GetAllAutores();
             listarAutores();
-            await carregamento(false, "Finalizando...");
+            await carregamento1.carregar(false, "Finalizando...");
         }
         void EscreverQuantidade()
         {

@@ -35,9 +35,9 @@ namespace Biblioteca.Views
         }
         async void listarRFIDS()
         {
-            await carregamento(true, "Buscando...");
+            await carregamento.carregar(true, "Buscando...");
             List<RFID> rfids = await Program.Database.GetRFIDs(usuario.ID);
-            await carregamento(true, "Listando...");
+            await carregamento.carregar(true, "Listando...");
             foreach (var item in rfids)
             {
                 ListViewItem lvi = new ListViewItem();
@@ -45,7 +45,7 @@ namespace Biblioteca.Views
                 lvi.SubItems.Add(item.ID);
                 listView.Items.Add(lvi);
             }
-            await carregamento(false);
+            await carregamento.carregar(false);
         }
 
         void ExibirDados()
@@ -74,17 +74,17 @@ namespace Biblioteca.Views
 
         private async void btnAdicionar_Click(object sender, EventArgs e)
         {
-            await carregamento(true, "Abrindo cadastro...");
+            await carregamento.carregar(true, "Abrindo cadastro...");
             
           
             LeituraRfidPage leituraRfidPage = new LeituraRfidPage(main);
-            await carregamento(true, "Aguardando cadastro...");
+            await carregamento.carregar(true, "Aguardando cadastro...");
             leituraRfidPage.ShowDialog();
             string ID = leituraRfidPage.retorno;
 
             if (!string.IsNullOrEmpty(ID) && !string.IsNullOrEmpty(usuario.RA))
             {
-                await carregamento(true, "Salvando RFID...");
+                await carregamento.carregar(true, "Salvando RFID...");
                 RFID rfid = new RFID();
                 rfid.ID = ID;
                 rfid.IdUsuario = usuario.ID;
@@ -92,7 +92,7 @@ namespace Biblioteca.Views
                 await Program.Database.SalvarRFID(rfid);
                 listarRFIDS();
             }
-            await carregamento(false);
+            await carregamento.carregar(false);
            
         }
 
@@ -119,23 +119,17 @@ namespace Biblioteca.Views
         {
 
         }
-        async Task carregamento(bool carregar, string mensagem = "carregando...")
-        {
-            txtCarregamento.Text = mensagem;
-            panelCarregando.Visible = carregar;
-            await Task.Delay(100);
-        }
         private async void btnRemover_Click(object sender, EventArgs e)
         {
-            await carregamento(true, "Listando...");
+            await carregamento.carregar(true, "Listando...");
             List<string> ids= new List<string>();
             for(int i = 0; i < listView.CheckedItems.Count; i++)
             {
                 ids.Add(listView.CheckedItems[i].SubItems[1].Text);
             }
-            await carregamento(true, "Removendo...");
+            await carregamento.carregar(true, "Removendo...");
             await Program.Database.RemoveRFID(ids);
-            await carregamento(false);
+            await carregamento.carregar(false);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

@@ -103,3 +103,7 @@ E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\obj\Debug\Biblioteca.pdb
 E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\obj\Debug\Biblioteca.Views.ListaLivroPage.resources
 E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\obj\Debug\Biblioteca.Views.ListaAutores.resources
 E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\obj\Debug\Biblioteca.Views.CadastroLivro.resources
+E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\bin\Debug\Views\Carregamento.resx
+E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\bin\Debug\Views\Carregamento.cs
+E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\bin\Debug\Views\Carregamento.Designer.cs
+E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\obj\Debug\Biblioteca.Views.Carregamento.resources

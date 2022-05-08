@@ -32,9 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.panelUsuario = new System.Windows.Forms.Panel();
-            this.panelCarregando = new System.Windows.Forms.Panel();
-            this.txtCarregamento = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtISBN = new System.Windows.Forms.TextBox();
             this.txtQtd = new System.Windows.Forms.NumericUpDown();
@@ -48,10 +45,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.carregamento1 = new Biblioteca.Views.Carregamento();
             this.panel1.SuspendLayout();
             this.panelUsuario.SuspendLayout();
-            this.panelCarregando.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQtd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdicao)).BeginInit();
             this.SuspendLayout();
@@ -89,7 +85,7 @@
             // 
             // panelUsuario
             // 
-            this.panelUsuario.Controls.Add(this.panelCarregando);
+            this.panelUsuario.Controls.Add(this.carregamento1);
             this.panelUsuario.Controls.Add(this.label7);
             this.panelUsuario.Controls.Add(this.txtISBN);
             this.panelUsuario.Controls.Add(this.txtQtd);
@@ -106,44 +102,6 @@
             this.panelUsuario.Name = "panelUsuario";
             this.panelUsuario.Size = new System.Drawing.Size(482, 114);
             this.panelUsuario.TabIndex = 3;
-            // 
-            // panelCarregando
-            // 
-            this.panelCarregando.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panelCarregando.BackColor = System.Drawing.Color.Transparent;
-            this.panelCarregando.Controls.Add(this.txtCarregamento);
-            this.panelCarregando.Controls.Add(this.pictureBox1);
-            this.panelCarregando.Location = new System.Drawing.Point(182, 29);
-            this.panelCarregando.Margin = new System.Windows.Forms.Padding(2);
-            this.panelCarregando.Name = "panelCarregando";
-            this.panelCarregando.Size = new System.Drawing.Size(110, 91);
-            this.panelCarregando.TabIndex = 28;
-            this.panelCarregando.Visible = false;
-            // 
-            // txtCarregamento
-            // 
-            this.txtCarregamento.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtCarregamento.Location = new System.Drawing.Point(0, 51);
-            this.txtCarregamento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.txtCarregamento.Name = "txtCarregamento";
-            this.txtCarregamento.Size = new System.Drawing.Size(110, 40);
-            this.txtCarregamento.TabIndex = 18;
-            this.txtCarregamento.Text = "Carregando...";
-            this.txtCarregamento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::Biblioteca.Properties.Resources.loading;
-            this.pictureBox1.Location = new System.Drawing.Point(36, 13);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(39, 36);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 17;
-            this.pictureBox1.TabStop = false;
             // 
             // label7
             // 
@@ -262,6 +220,14 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // carregamento1
+            // 
+            this.carregamento1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.carregamento1.Location = new System.Drawing.Point(180, 29);
+            this.carregamento1.Name = "carregamento1";
+            this.carregamento1.Size = new System.Drawing.Size(111, 82);
+            this.carregamento1.TabIndex = 16;
+            // 
             // CadastroLivro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,8 +245,6 @@
             this.panel1.PerformLayout();
             this.panelUsuario.ResumeLayout(false);
             this.panelUsuario.PerformLayout();
-            this.panelCarregando.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQtd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdicao)).EndInit();
             this.ResumeLayout(false);
@@ -303,11 +267,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtEditora;
-        private System.Windows.Forms.Panel panelCarregando;
-        private System.Windows.Forms.Label txtCarregamento;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtISBN;
         private System.Windows.Forms.Button btnCancelar;
+        private Carregamento carregamento1;
     }
 }

@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.txtQuantidade = new System.Windows.Forms.Label();
-            this.panelCarregando = new System.Windows.Forms.Panel();
-            this.txtCarregamento = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
@@ -48,8 +45,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.PictureBox();
-            this.panelCarregando.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.carregamento1 = new Biblioteca.Views.Carregamento();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
@@ -64,43 +60,6 @@
             this.txtQuantidade.Size = new System.Drawing.Size(39, 13);
             this.txtQuantidade.TabIndex = 33;
             this.txtQuantidade.Text = "0 Itens";
-            // 
-            // panelCarregando
-            // 
-            this.panelCarregando.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panelCarregando.Controls.Add(this.txtCarregamento);
-            this.panelCarregando.Controls.Add(this.pictureBox1);
-            this.panelCarregando.Location = new System.Drawing.Point(183, 333);
-            this.panelCarregando.Margin = new System.Windows.Forms.Padding(2);
-            this.panelCarregando.Name = "panelCarregando";
-            this.panelCarregando.Size = new System.Drawing.Size(163, 125);
-            this.panelCarregando.TabIndex = 27;
-            this.panelCarregando.Visible = false;
-            // 
-            // txtCarregamento
-            // 
-            this.txtCarregamento.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtCarregamento.Location = new System.Drawing.Point(0, 75);
-            this.txtCarregamento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.txtCarregamento.Name = "txtCarregamento";
-            this.txtCarregamento.Size = new System.Drawing.Size(163, 50);
-            this.txtCarregamento.TabIndex = 18;
-            this.txtCarregamento.Text = "Carregando...";
-            this.txtCarregamento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::Biblioteca.Properties.Resources.loading;
-            this.pictureBox1.Location = new System.Drawing.Point(64, 15);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 45);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 17;
-            this.pictureBox1.TabStop = false;
             // 
             // btnAdicionar
             // 
@@ -262,14 +221,22 @@
             this.btnBuscar.TabStop = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // carregamento1
+            // 
+            this.carregamento1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.carregamento1.Location = new System.Drawing.Point(198, 315);
+            this.carregamento1.Name = "carregamento1";
+            this.carregamento1.Size = new System.Drawing.Size(135, 127);
+            this.carregamento1.TabIndex = 35;
+            // 
             // ListaAutores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 611);
+            this.Controls.Add(this.carregamento1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.txtQuantidade);
-            this.Controls.Add(this.panelCarregando);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnRemover);
             this.Controls.Add(this.btnBuscar);
@@ -279,8 +246,6 @@
             this.MinimumSize = new System.Drawing.Size(577, 354);
             this.Name = "ListaAutores";
             this.Text = "ListaAutores";
-            this.panelCarregando.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -294,9 +259,6 @@
         #endregion
 
         private System.Windows.Forms.Label txtQuantidade;
-        private System.Windows.Forms.Panel panelCarregando;
-        private System.Windows.Forms.Label txtCarregamento;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnRemover;
@@ -313,5 +275,6 @@
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnLimpar;
+        private Carregamento carregamento1;
     }
 }
