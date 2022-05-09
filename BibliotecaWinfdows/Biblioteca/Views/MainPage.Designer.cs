@@ -181,9 +181,9 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(0, 81);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 29);
+            this.label3.Size = new System.Drawing.Size(93, 29);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Locações";
+            this.label3.Text = "Locação";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label3.Click += new System.EventHandler(this.locacoes_Click);
             // 

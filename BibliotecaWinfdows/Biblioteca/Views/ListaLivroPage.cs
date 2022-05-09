@@ -53,7 +53,7 @@ namespace Biblioteca.Views
             if (livrosSelecionados.Count > 0)
             {
                 txtQuantidade.Text += $" | {livrosSelecionados.Count}";
-                if (listView.CheckedItems.Count == 1)
+                if (livrosSelecionados.Count == 1)
                 {
                     txtQuantidade.Text += " selecionado";
                 }

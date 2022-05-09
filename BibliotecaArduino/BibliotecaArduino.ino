@@ -1,12 +1,16 @@
-int pinoLed = 13; 
+#include <MFRC522.h>
+#include <SPI.h>
 
-void setup() {
-  // Iniciar o serial 
-  Serial.begin(9600);
+//Definindo pinos
+const int pinoLed = 13; 
+const int SS_PIN = 10;
+const int RST_PIN = 9;
 
-  //Iniciar pinos 
-   pinMode(pinoLed, OUTPUT);
-}
+//Variaveis globais
+bool lerRFID = false;
+
+//Instanciando leitor
+MFRC522 mfrc522(SS_PIN, RST_PIN); 
 
 String lerSerial(){
   String resp="";
@@ -33,22 +37,55 @@ void testar(String op){
     digitalWrite (pinoLed, HIGH);
   }
 }
-void lerRFID(char op){
+void ligarRFID(char op){
  
   if(op == 'I'){
     digitalWrite (pinoLed, HIGH);
+    lerRFID = true;
   }  
   else{
      digitalWrite (pinoLed, LOW);
+     lerRFID = false;
    }
 }
+
+void setup() {
+  // Iniciar o serial 
+  Serial.begin(9600);
+  SPI.begin();      // Inicia  SPI bus
+  SPI.begin();// Inicia SPI bus
+  mfrc522.PCD_Init();   // Inicia MFRC522
+  
+  //Iniciar pinos 
+   pinMode(pinoLed, OUTPUT);
+}
+
 void loop() {
   String opcao = lerSerial();
   // Se a opcao não for vazia
   if(opcao!=""){
     switch(opcao[1]){
       case 'T': testar(opcao); break;
-      case 'L': lerRFID(opcao[2]); break;
+      case 'L': ligarRFID(opcao[2]); break;
     }
   }
+  if(lerRFID){
+     String conteudo= "";
+     byte letra;
+      if ( ! mfrc522.PICC_IsNewCardPresent()) 
+      {
+         return;
+      }
+      if ( ! mfrc522.PICC_ReadCardSerial()) 
+      {
+         return;
+      }
+      for (byte i = 0; i < mfrc522.uid.size; i++) 
+      {
+         conteudo.concat(String(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " "));
+         conteudo.concat(String(mfrc522.uid.uidByte[i], HEX));
+      }
+      conteudo.toUpperCase();
+      Serial.println(conteudo.substring(1));
+   }
 }
