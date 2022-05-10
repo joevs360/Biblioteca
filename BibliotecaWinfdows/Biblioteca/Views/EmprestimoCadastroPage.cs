@@ -27,9 +27,23 @@ namespace Biblioteca.Views
             LeituraRfidPage leituraRfidPage = new LeituraRfidPage(main);
             leituraRfidPage.ShowDialog();
             string rfid = leituraRfidPage.retorno;
-
+            BuscarUsuario(rfid);
         }
-
+        async void BuscarUsuario(string rfid)
+        {
+            usuario = await Program.Database.GetUsuarioByRFID(rfid);
+            ExibirUsuario();
+        }
+        void ExibirUsuario()
+        {
+            if (usuario != null)
+            {
+                txtEmail.Text = usuario.Email;
+                txtNome.Text = usuario.Nome;
+                txtRA.Text = usuario.RA;
+                txtTelefone.Text = usuario.Telefone;
+            }
+        }
         private void listView_SelectedIndexChanged(object sender, EventArgs e)
         {
             listView.SelectedItems.Clear();

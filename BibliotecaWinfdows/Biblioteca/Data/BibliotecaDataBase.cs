@@ -90,12 +90,28 @@ namespace Biblioteca.Data
         //Usuário
         public async Task<Usuario> GetUsuarioByRFID(string id)
         {
-            RFID rfid = await database.Table<RFID>().Where(r => r.ID == id).FirstOrDefaultAsync();
-            if(rfid == null)
+            try
             {
-                return await database.Table<Usuario>().Where(u => u.ID== rfid.IdUsuario).FirstOrDefaultAsync();
+                RFID rfid = await database.Table<RFID>().Where(r => r.ID == id).FirstOrDefaultAsync();
+                if (rfid == null)
+                {
+                    var user = await database.Table<Usuario>().Where(u => u.ID == rfid.IdUsuario).FirstOrDefaultAsync();
+                    if(user == null)
+                    {
+                        MessageBox.Show("Usuário não encontrado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return null;
+                    }
+                    return user;
+                }
+                MessageBox.Show("RFID não cadastrado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
-            return null;
+            catch (Exception e)
+            {
+                MessageBox.Show("Erro: "+ e, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+           
         }
         public async Task<Usuario> GetUsuarioByID(int id)
         {

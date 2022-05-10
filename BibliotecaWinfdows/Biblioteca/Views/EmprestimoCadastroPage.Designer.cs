@@ -32,12 +32,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLerRFID = new System.Windows.Forms.PictureBox();
             this.panelUsuario = new System.Windows.Forms.Panel();
-            this.textTelefone = new System.Windows.Forms.TextBox();
+            this.txtTelefone = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtRA = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.listView = new System.Windows.Forms.ListView();
@@ -88,12 +88,12 @@
             // 
             // panelUsuario
             // 
-            this.panelUsuario.Controls.Add(this.textTelefone);
+            this.panelUsuario.Controls.Add(this.txtTelefone);
             this.panelUsuario.Controls.Add(this.label3);
             this.panelUsuario.Controls.Add(this.label5);
             this.panelUsuario.Controls.Add(this.label2);
             this.panelUsuario.Controls.Add(this.txtEmail);
-            this.panelUsuario.Controls.Add(this.textBox1);
+            this.panelUsuario.Controls.Add(this.txtRA);
             this.panelUsuario.Controls.Add(this.label4);
             this.panelUsuario.Controls.Add(this.txtNome);
             this.panelUsuario.Location = new System.Drawing.Point(85, 55);
@@ -101,14 +101,14 @@
             this.panelUsuario.Size = new System.Drawing.Size(365, 66);
             this.panelUsuario.TabIndex = 3;
             // 
-            // textTelefone
+            // txtTelefone
             // 
-            this.textTelefone.Enabled = false;
-            this.textTelefone.Location = new System.Drawing.Point(255, 36);
-            this.textTelefone.Name = "textTelefone";
-            this.textTelefone.Size = new System.Drawing.Size(86, 20);
-            this.textTelefone.TabIndex = 8;
-            this.textTelefone.Text = "(00) 00000-0000";
+            this.txtTelefone.Enabled = false;
+            this.txtTelefone.Location = new System.Drawing.Point(255, 36);
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Size = new System.Drawing.Size(86, 20);
+            this.txtTelefone.TabIndex = 8;
+            this.txtTelefone.Text = "(00) 00000-0000";
             // 
             // label3
             // 
@@ -149,14 +149,14 @@
             this.txtEmail.TabIndex = 6;
             this.txtEmail.Text = "exemplo@email.com";
             // 
-            // textBox1
+            // txtRA
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(283, 10);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(58, 20);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "00000000";
+            this.txtRA.Enabled = false;
+            this.txtRA.Location = new System.Drawing.Point(283, 10);
+            this.txtRA.Name = "txtRA";
+            this.txtRA.Size = new System.Drawing.Size(58, 20);
+            this.txtRA.TabIndex = 2;
+            this.txtRA.Text = "00000000";
             // 
             // label4
             // 
@@ -264,12 +264,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panelUsuario;
-        private System.Windows.Forms.TextBox textTelefone;
+        private System.Windows.Forms.TextBox txtTelefone;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtRA;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.PictureBox btnLerRFID;

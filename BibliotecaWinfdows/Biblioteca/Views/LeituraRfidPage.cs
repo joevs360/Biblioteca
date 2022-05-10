@@ -59,7 +59,7 @@ namespace Biblioteca.Views
             main.arduino.enviarDados(teste);
             //Aguarda a resposta do teste e se é valido 
             teste += "-OK";
-            if (await main.lerDados(5000) && teste.Contains(main.UltimoDado.Replace("\n","").Replace("\r", "")))
+            if (await main.lerDados(5000) && teste.Contains(main.UltimoDado))
             {
                 resp = true;
             }

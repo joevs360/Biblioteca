@@ -2,15 +2,26 @@
 #include <SPI.h>
 
 //Definindo pinos
-const int pinoLed = 13; 
-const int SS_PIN = 10;
+const int pinoLed = 8; 
+
+//Pinos RFID
+const int SDA_PIN = 10;
 const int RST_PIN = 9;
+/*
+ * MOSI: 11
+ * MISO: 12
+ * SCK: 13
+ * SDA: 10
+ * RST: 09
+ */
+ 
+//Instanciando leitor
+MFRC522 mfrc522(SDA_PIN, RST_PIN); 
 
 //Variaveis globais
 bool lerRFID = false;
 
-//Instanciando leitor
-MFRC522 mfrc522(SS_PIN, RST_PIN); 
+
 
 String lerSerial(){
   String resp="";
@@ -85,7 +96,6 @@ void loop() {
          conteudo.concat(String(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " "));
          conteudo.concat(String(mfrc522.uid.uidByte[i], HEX));
       }
-      conteudo.toUpperCase();
       Serial.println(conteudo.substring(1));
    }
 }

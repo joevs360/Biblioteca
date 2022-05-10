@@ -40,7 +40,7 @@ namespace Biblioteca.Views
         private void serial_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             string RxString = arduino.serialPorta.ReadExisting();
-            UltimoDado = RxString;
+            UltimoDado = RxString.Replace("\n", "").Replace("\r", "");
             if (RxString.Contains('\n'))
             {
                 //Envia para o arduino fechar a leitura
