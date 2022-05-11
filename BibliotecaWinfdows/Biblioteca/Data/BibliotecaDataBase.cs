@@ -270,7 +270,7 @@ namespace Biblioteca.Data
         }
         public async Task<int> QuantidadeLocado(int idLivro)
         {
-           return await database.Table<Locacao>().Where(l => l.LivroID == idLivro && l.dataDevolucao == null).CountAsync();
+           return await database.Table<Locacao>().Where(l => l.LivroID == idLivro).CountAsync();
         }
         public async Task<bool> SalvarLocacao(Usuario usuario , Livro livro)
         {
@@ -314,10 +314,15 @@ namespace Biblioteca.Data
         {
             try
             {
-                await DeleteAsync(locacao);
-                return true;
+                if(MessageBox.Show("Finalizar a locação", "Aviso", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    await DeleteAsync(locacao);
+                    return true;
+                }
+                return false;
+              
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
             }

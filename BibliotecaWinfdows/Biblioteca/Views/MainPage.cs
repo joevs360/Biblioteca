@@ -26,6 +26,22 @@ namespace Biblioteca.Views
 
             carregamento1.Tag = "em aberto";
             carregamento2.Tag = "vencidas";
+            IniciarBanco();
+        }
+        async void IniciarBanco()
+        {
+            
+            if (Program.livros.Count == 0)
+            {
+                await carregamento1.carregar(true, $"Buscando livros...");
+                Program.livros = await Program.Database.GetLivros();
+            }
+            if (Program.autores.Count == 0)
+            {
+                await carregamento1.carregar(true, $"Buscando autores...");
+                Program.autores = await Program.Database.GetAllAutores();
+            }
+            BuscarBanco();
         }
 
         private void serialToolStripMenuItem_Click(object sender, EventArgs e)
@@ -74,6 +90,7 @@ namespace Biblioteca.Views
         {
             EmprestimoCadastroPage emprestimo = new EmprestimoCadastroPage(this);
             emprestimo.ShowDialog();
+            BuscarBanco();
         }
 
 
@@ -111,16 +128,18 @@ namespace Biblioteca.Views
             await carregamento2.carregar(true, $"Buscando locações no banco de dados...");
             LocacoesBD = await Program.Database.GetLocacoes();
            
-            ListarLocacoes(listView1, LocacoesBD.Where(l => l.dataInicio.AddDays(diaMaximo) <= DateTime.Now).ToList(), carregamento1);
-            ListarLocacoes(listView2, LocacoesBD.Where(l => l.dataInicio.AddDays(diaMaximo) > DateTime.Now).ToList(), carregamento2);
+            ListarLocacoes(listView1, LocacoesBD.Where(l => l.dataInicio.AddDays(diaMaximo) > DateTime.Now).ToList(), carregamento1);
+            ListarLocacoes(listView2, LocacoesBD.Where(l => l.dataInicio.AddDays(diaMaximo) <= DateTime.Now).ToList(), carregamento2);
+            await carregamento1.carregar(false, $"Buscando locações no banco de dados...");
+            await carregamento2.carregar(false, $"Buscando locações no banco de dados...");
         }
 
         async void ListarLocacoes(ListView list, List<Locacao> locacoes,Carregamento carregamento)
         {
             int qtd = locacoes.Count;
-            if(qtd > 0)
+            list.Items.Clear();
+            if (qtd > 0)
             {
-                list.Items.Clear();
                 for (int i = 0; i < qtd; i++)
                 {
                     var item = locacoes[i];
@@ -135,7 +154,7 @@ namespace Biblioteca.Views
 
 
                     ListViewItem lvi = new ListViewItem();
-                    lvi.SubItems.Add(aluno.RA);
+                    lvi.SubItems[0].Text=aluno.RA.ToString();
                     lvi.SubItems.Add(aluno.Nome);
                     lvi.SubItems.Add(livro.Nome);
                     lvi.SubItems.Add(item.dataInicio.ToString("dd/MM/yyyy"));
@@ -172,9 +191,13 @@ namespace Biblioteca.Views
         {
             await carregamento1.carregar(false, $"Finalizando a locação");
             await carregamento2.carregar(false, $"Finalizando a locação");
-            await Program.Database.RemoverLocacao(locacao);
+            if( await Program.Database.RemoverLocacao(locacao))
+            {
+                BuscarBanco();
+            }
             await carregamento1.carregar(false, $"Finalizando...");
             await carregamento2.carregar(false, $"Finalizando...");
+            
         }
      
 
@@ -186,12 +209,29 @@ namespace Biblioteca.Views
 
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count == 1)
+            if (listView2.SelectedItems.Count == 1)
             {
 
                 btnFinalizar.Visible = true;
                 LocacaoSelecionada = listView2.SelectedItems[0].Tag as Locacao;
                 listView1.SelectedItems.Clear();
+            }
+            else
+            {
+                btnFinalizar.Visible = false;
+            }
+        }
+
+
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 1)
+            {
+
+                btnFinalizar.Visible = true;
+                LocacaoSelecionada = listView1.SelectedItems[0].Tag as Locacao;
+                listView2.SelectedItems.Clear();
             }
             else
             {
