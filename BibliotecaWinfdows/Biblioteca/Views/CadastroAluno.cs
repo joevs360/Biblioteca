@@ -135,14 +135,6 @@ namespace Biblioteca.Views
             await carregamento.carregar(false);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
-
-        private void carregamento_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

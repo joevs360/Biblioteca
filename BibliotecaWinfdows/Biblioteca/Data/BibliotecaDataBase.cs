@@ -49,8 +49,6 @@ namespace Biblioteca.Data
                     await database.UpdateAsync(portaDoBanco);
                     return true;
                 }
-                return false;
-
             }
             catch (Exception)
             {
@@ -262,9 +260,9 @@ namespace Biblioteca.Data
         {
             return await database.Table<Locacao>().Where(l => l.LivroID == idLivro).ToListAsync();
         }
-        public async Task<List<Locacao>> GetLocacoesEmAberto()
+        public async Task<List<Locacao>> GetLocacoes()
         {
-            return await database.Table<Locacao>().Where(l => l.dataDevolucao == null).ToListAsync();
+            return await database.Table<Locacao>().ToListAsync();
         }
         public async Task<List<Locacao>> GetLocacoesData(DateTime data)
         {
@@ -272,7 +270,7 @@ namespace Biblioteca.Data
         }
         public async Task<int> QuantidadeLocado(int idLivro)
         {
-           return await database.Table<Locacao>().Where(l => l.LivroID == idLivro).CountAsync();
+           return await database.Table<Locacao>().Where(l => l.LivroID == idLivro && l.dataDevolucao == null).CountAsync();
         }
         public async Task<bool> SalvarLocacao(Usuario usuario , Livro livro)
         {
@@ -312,6 +310,19 @@ namespace Biblioteca.Data
             }
         }
 
+        public async Task<bool> RemoverLocacao(Locacao locacao)
+        {
+            try
+            {
+                await DeleteAsync(locacao);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            
+        }
         public async Task<bool> RemoverLocacoesPorLivro(int id)
         {
             try

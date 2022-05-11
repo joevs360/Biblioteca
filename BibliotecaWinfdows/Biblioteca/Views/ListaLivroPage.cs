@@ -178,5 +178,10 @@ namespace Biblioteca.Views
             }
               
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

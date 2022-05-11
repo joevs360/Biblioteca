@@ -210,6 +210,7 @@
             this.btnBuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnBuscar.TabIndex = 20;
             this.btnBuscar.TabStop = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // carregamento1
             // 
@@ -218,6 +219,7 @@
             this.carregamento1.Name = "carregamento1";
             this.carregamento1.Size = new System.Drawing.Size(145, 123);
             this.carregamento1.TabIndex = 26;
+            this.carregamento1.Visible = false;
             // 
             // ListaLivroPage
             // 
