@@ -57,8 +57,9 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(785, 67);
+            this.panel1.Size = new System.Drawing.Size(1047, 82);
             this.panel1.TabIndex = 10;
             // 
             // label1
@@ -66,9 +67,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(9, 16);
+            this.label1.Location = new System.Drawing.Point(12, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 36);
+            this.label1.Size = new System.Drawing.Size(111, 45);
             this.label1.TabIndex = 0;
             this.label1.Text = "Livros";
             // 
@@ -89,9 +91,10 @@
             this.colISBN});
             this.listView.GridLines = true;
             this.listView.HideSelection = false;
-            this.listView.Location = new System.Drawing.Point(12, 99);
+            this.listView.Location = new System.Drawing.Point(16, 122);
+            this.listView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(761, 414);
+            this.listView.Size = new System.Drawing.Size(1013, 509);
             this.listView.TabIndex = 18;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -138,18 +141,20 @@
             // 
             // txtBusca
             // 
-            this.txtBusca.Location = new System.Drawing.Point(12, 73);
+            this.txtBusca.Location = new System.Drawing.Point(16, 90);
+            this.txtBusca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBusca.Name = "txtBusca";
-            this.txtBusca.Size = new System.Drawing.Size(258, 20);
+            this.txtBusca.Size = new System.Drawing.Size(343, 22);
             this.txtBusca.TabIndex = 19;
             this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
             // 
             // btnAdicionar
             // 
             this.btnAdicionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdicionar.Location = new System.Drawing.Point(698, 73);
+            this.btnAdicionar.Location = new System.Drawing.Point(931, 90);
+            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(75, 23);
+            this.btnAdicionar.Size = new System.Drawing.Size(100, 28);
             this.btnAdicionar.TabIndex = 23;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
@@ -158,9 +163,10 @@
             // btnEditar
             // 
             this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditar.Location = new System.Drawing.Point(536, 73);
+            this.btnEditar.Location = new System.Drawing.Point(715, 90);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.Size = new System.Drawing.Size(100, 28);
             this.btnEditar.TabIndex = 22;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -170,9 +176,10 @@
             // btnRemover
             // 
             this.btnRemover.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRemover.Location = new System.Drawing.Point(617, 73);
+            this.btnRemover.Location = new System.Drawing.Point(823, 90);
+            this.btnRemover.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRemover.Name = "btnRemover";
-            this.btnRemover.Size = new System.Drawing.Size(75, 23);
+            this.btnRemover.Size = new System.Drawing.Size(100, 28);
             this.btnRemover.TabIndex = 21;
             this.btnRemover.Text = "Remover";
             this.btnRemover.UseVisualStyleBackColor = true;
@@ -183,18 +190,20 @@
             // 
             this.txtQuantidade.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtQuantidade.AutoSize = true;
-            this.txtQuantidade.Location = new System.Drawing.Point(12, 516);
+            this.txtQuantidade.Location = new System.Drawing.Point(16, 635);
+            this.txtQuantidade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtQuantidade.Name = "txtQuantidade";
-            this.txtQuantidade.Size = new System.Drawing.Size(39, 13);
+            this.txtQuantidade.Size = new System.Drawing.Size(45, 16);
             this.txtQuantidade.TabIndex = 24;
             this.txtQuantidade.Text = "0 Itens";
             // 
             // btnSelecionar
             // 
             this.btnSelecionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelecionar.Location = new System.Drawing.Point(698, 73);
+            this.btnSelecionar.Location = new System.Drawing.Point(931, 90);
+            this.btnSelecionar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSelecionar.Name = "btnSelecionar";
-            this.btnSelecionar.Size = new System.Drawing.Size(75, 23);
+            this.btnSelecionar.Size = new System.Drawing.Size(100, 28);
             this.btnSelecionar.TabIndex = 25;
             this.btnSelecionar.Text = "Selecionar";
             this.btnSelecionar.UseVisualStyleBackColor = true;
@@ -204,9 +213,10 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::Biblioteca.Properties.Resources.lupa;
-            this.btnBuscar.Location = new System.Drawing.Point(276, 73);
+            this.btnBuscar.Location = new System.Drawing.Point(368, 90);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(18, 20);
+            this.btnBuscar.Size = new System.Drawing.Size(24, 25);
             this.btnBuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnBuscar.TabIndex = 20;
             this.btnBuscar.TabStop = false;
@@ -215,17 +225,18 @@
             // carregamento1
             // 
             this.carregamento1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.carregamento1.Location = new System.Drawing.Point(311, 248);
+            this.carregamento1.Location = new System.Drawing.Point(415, 305);
+            this.carregamento1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.carregamento1.Name = "carregamento1";
-            this.carregamento1.Size = new System.Drawing.Size(145, 123);
+            this.carregamento1.Size = new System.Drawing.Size(193, 151);
             this.carregamento1.TabIndex = 26;
             this.carregamento1.Visible = false;
             // 
             // ListaLivroPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 538);
+            this.ClientSize = new System.Drawing.Size(1047, 662);
             this.Controls.Add(this.carregamento1);
             this.Controls.Add(this.btnSelecionar);
             this.Controls.Add(this.btnRemover);
@@ -236,9 +247,10 @@
             this.Controls.Add(this.txtBusca);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.panel1);
-            this.MinimumSize = new System.Drawing.Size(571, 465);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(755, 561);
             this.Name = "ListaLivroPage";
-            this.Text = "ListaLivroPage";
+            this.Text = "Lista de Livros";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();

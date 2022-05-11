@@ -53,12 +53,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.carregamento1 = new Biblioteca.Views.Carregamento();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.carregamento2 = new Biblioteca.Views.Carregamento();
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -67,8 +69,6 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnFinalizar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.carregamento1 = new Biblioteca.Views.Carregamento();
-            this.carregamento2 = new Biblioteca.Views.Carregamento();
             this.menuStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -97,7 +97,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1351, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1351, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -109,7 +109,7 @@
             this.autoresToolStripMenuItem,
             this.livrosToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.menuToolStripMenuItem.Text = "Opções";
             // 
             // alunosToolStripMenuItem
@@ -145,7 +145,7 @@
             this.arduinoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.serialToolStripMenuItem});
             this.arduinoToolStripMenuItem.Name = "arduinoToolStripMenuItem";
-            this.arduinoToolStripMenuItem.Size = new System.Drawing.Size(81, 26);
+            this.arduinoToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
             this.arduinoToolStripMenuItem.Text = "Conexão";
             // 
             // serialToolStripMenuItem
@@ -164,7 +164,7 @@
             this.flowLayoutPanel1.Controls.Add(this.panel4);
             this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 30);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 28);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1351, 162);
@@ -357,6 +357,16 @@
             this.tabPage1.Text = "Novas";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // carregamento1
+            // 
+            this.carregamento1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.carregamento1.Location = new System.Drawing.Point(571, 138);
+            this.carregamento1.Margin = new System.Windows.Forms.Padding(5);
+            this.carregamento1.Name = "carregamento1";
+            this.carregamento1.Size = new System.Drawing.Size(213, 182);
+            this.carregamento1.TabIndex = 18;
+            this.carregamento1.Visible = false;
+            // 
             // listView1
             // 
             this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
@@ -412,6 +422,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Vencidas";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // carregamento2
+            // 
+            this.carregamento2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.carregamento2.Location = new System.Drawing.Point(597, 119);
+            this.carregamento2.Margin = new System.Windows.Forms.Padding(5);
+            this.carregamento2.Name = "carregamento2";
+            this.carregamento2.Size = new System.Drawing.Size(213, 182);
+            this.carregamento2.TabIndex = 20;
+            this.carregamento2.Visible = false;
             // 
             // listView2
             // 
@@ -486,26 +506,6 @@
             this.label5.TabIndex = 33;
             this.label5.Text = "Locações";
             // 
-            // carregamento1
-            // 
-            this.carregamento1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.carregamento1.Location = new System.Drawing.Point(571, 138);
-            this.carregamento1.Margin = new System.Windows.Forms.Padding(5);
-            this.carregamento1.Name = "carregamento1";
-            this.carregamento1.Size = new System.Drawing.Size(213, 182);
-            this.carregamento1.TabIndex = 18;
-            this.carregamento1.Visible = false;
-            // 
-            // carregamento2
-            // 
-            this.carregamento2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.carregamento2.Location = new System.Drawing.Point(597, 119);
-            this.carregamento2.Margin = new System.Windows.Forms.Padding(5);
-            this.carregamento2.Name = "carregamento2";
-            this.carregamento2.Size = new System.Drawing.Size(213, 182);
-            this.carregamento2.TabIndex = 20;
-            this.carregamento2.Visible = false;
-            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -519,7 +519,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(905, 763);
             this.Name = "MainPage";
-            this.Text = "MainPage";
+            this.Text = "Projeto Biblioteca";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainPage_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

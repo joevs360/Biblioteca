@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.panelUsuario = new System.Windows.Forms.Panel();
+            this.carregamento1 = new Biblioteca.Views.Carregamento();
             this.label7 = new System.Windows.Forms.Label();
             this.txtISBN = new System.Windows.Forms.TextBox();
             this.txtQtd = new System.Windows.Forms.NumericUpDown();
@@ -45,7 +46,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.carregamento1 = new Biblioteca.Views.Carregamento();
             this.panel1.SuspendLayout();
             this.panelUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtQtd)).BeginInit();
@@ -58,8 +58,9 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(504, 68);
+            this.panel1.Size = new System.Drawing.Size(669, 84);
             this.panel1.TabIndex = 4;
             // 
             // label1
@@ -67,17 +68,19 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(9, 16);
+            this.label1.Location = new System.Drawing.Point(12, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 36);
+            this.label1.Size = new System.Drawing.Size(241, 45);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cadastro Livro";
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(176, 197);
+            this.btnSalvar.Location = new System.Drawing.Point(235, 242);
+            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.Size = new System.Drawing.Size(100, 28);
             this.btnSalvar.TabIndex = 4;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -98,33 +101,47 @@
             this.panelUsuario.Controls.Add(this.label2);
             this.panelUsuario.Controls.Add(this.label3);
             this.panelUsuario.Controls.Add(this.txtNome);
-            this.panelUsuario.Location = new System.Drawing.Point(12, 74);
+            this.panelUsuario.Location = new System.Drawing.Point(16, 91);
+            this.panelUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelUsuario.Name = "panelUsuario";
-            this.panelUsuario.Size = new System.Drawing.Size(482, 114);
+            this.panelUsuario.Size = new System.Drawing.Size(643, 140);
             this.panelUsuario.TabIndex = 3;
+            // 
+            // carregamento1
+            // 
+            this.carregamento1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.carregamento1.Location = new System.Drawing.Point(240, 36);
+            this.carregamento1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.carregamento1.Name = "carregamento1";
+            this.carregamento1.Size = new System.Drawing.Size(148, 101);
+            this.carregamento1.TabIndex = 16;
+            this.carregamento1.Visible = false;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(294, 13);
+            this.label7.Location = new System.Drawing.Point(392, 16);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 13);
+            this.label7.Size = new System.Drawing.Size(50, 16);
             this.label7.TabIndex = 15;
             this.label7.Text = "Editora";
             // 
             // txtISBN
             // 
-            this.txtISBN.Location = new System.Drawing.Point(355, 81);
+            this.txtISBN.Location = new System.Drawing.Point(473, 100);
+            this.txtISBN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtISBN.Name = "txtISBN";
-            this.txtISBN.Size = new System.Drawing.Size(100, 20);
+            this.txtISBN.Size = new System.Drawing.Size(132, 22);
             this.txtISBN.TabIndex = 14;
             // 
             // txtQtd
             // 
-            this.txtQtd.Location = new System.Drawing.Point(228, 81);
+            this.txtQtd.Location = new System.Drawing.Point(304, 100);
+            this.txtQtd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtQtd.Name = "txtQtd";
-            this.txtQtd.Size = new System.Drawing.Size(120, 20);
+            this.txtQtd.Size = new System.Drawing.Size(160, 22);
             this.txtQtd.TabIndex = 13;
             this.txtQtd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -132,9 +149,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(225, 64);
+            this.label6.Location = new System.Drawing.Point(300, 79);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 13);
+            this.label6.Size = new System.Drawing.Size(77, 16);
             this.label6.TabIndex = 12;
             this.label6.Text = "Quantidade";
             // 
@@ -143,18 +161,20 @@
             this.selectAutor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.selectAutor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.selectAutor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.selectAutor.Location = new System.Drawing.Point(9, 81);
+            this.selectAutor.Location = new System.Drawing.Point(12, 100);
+            this.selectAutor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.selectAutor.Name = "selectAutor";
-            this.selectAutor.Size = new System.Drawing.Size(200, 21);
+            this.selectAutor.Size = new System.Drawing.Size(265, 24);
             this.selectAutor.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(6, 64);
+            this.label5.Location = new System.Drawing.Point(8, 79);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 13);
+            this.label5.Size = new System.Drawing.Size(38, 16);
             this.label5.TabIndex = 10;
             this.label5.Text = "Autor";
             // 
@@ -162,24 +182,27 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(354, 65);
+            this.label4.Location = new System.Drawing.Point(472, 80);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 13);
+            this.label4.Size = new System.Drawing.Size(38, 16);
             this.label4.TabIndex = 9;
             this.label4.Text = "ISBN";
             // 
             // txtEditora
             // 
-            this.txtEditora.Location = new System.Drawing.Point(297, 29);
+            this.txtEditora.Location = new System.Drawing.Point(396, 36);
+            this.txtEditora.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEditora.Name = "txtEditora";
-            this.txtEditora.Size = new System.Drawing.Size(158, 20);
+            this.txtEditora.Size = new System.Drawing.Size(209, 22);
             this.txtEditora.TabIndex = 8;
             // 
             // txtEdicao
             // 
-            this.txtEdicao.Location = new System.Drawing.Point(220, 29);
+            this.txtEdicao.Location = new System.Drawing.Point(293, 36);
+            this.txtEdicao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEdicao.Name = "txtEdicao";
-            this.txtEdicao.Size = new System.Drawing.Size(67, 20);
+            this.txtEdicao.Size = new System.Drawing.Size(89, 22);
             this.txtEdicao.TabIndex = 7;
             this.txtEdicao.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -187,9 +210,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(217, 13);
+            this.label2.Location = new System.Drawing.Point(289, 16);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.Size = new System.Drawing.Size(50, 16);
             this.label2.TabIndex = 5;
             this.label2.Text = "Edição";
             // 
@@ -197,50 +221,46 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(3, 13);
+            this.label3.Location = new System.Drawing.Point(4, 16);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.Size = new System.Drawing.Size(40, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "Título";
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(6, 29);
+            this.txtNome.Location = new System.Drawing.Point(8, 36);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(203, 20);
+            this.txtNome.Size = new System.Drawing.Size(269, 22);
             this.txtNome.TabIndex = 4;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(257, 197);
+            this.btnCancelar.Location = new System.Drawing.Point(343, 242);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // carregamento1
-            // 
-            this.carregamento1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.carregamento1.Location = new System.Drawing.Point(180, 29);
-            this.carregamento1.Name = "carregamento1";
-            this.carregamento1.Size = new System.Drawing.Size(111, 82);
-            this.carregamento1.TabIndex = 16;
-            // 
             // CadastroLivro
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(504, 227);
+            this.ClientSize = new System.Drawing.Size(669, 270);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelUsuario);
-            this.MaximumSize = new System.Drawing.Size(520, 266);
-            this.MinimumSize = new System.Drawing.Size(520, 266);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximumSize = new System.Drawing.Size(687, 317);
+            this.MinimumSize = new System.Drawing.Size(687, 317);
             this.Name = "CadastroLivro";
-            this.Text = "CadastroLivro";
+            this.Text = "Cadastro de Livro";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelUsuario.ResumeLayout(false);

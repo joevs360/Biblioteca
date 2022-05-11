@@ -60,7 +60,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(519, 197);
             this.panel1.TabIndex = 3;
@@ -68,7 +68,7 @@
             // btnSalvar
             // 
             this.btnSalvar.Location = new System.Drawing.Point(16, 158);
-            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(100, 28);
             this.btnSalvar.TabIndex = 4;
@@ -87,7 +87,7 @@
             this.panelUsuario.Controls.Add(this.label4);
             this.panelUsuario.Controls.Add(this.txtNome);
             this.panelUsuario.Location = new System.Drawing.Point(16, 68);
-            this.panelUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.panelUsuario.Name = "panelUsuario";
             this.panelUsuario.Size = new System.Drawing.Size(487, 81);
             this.panelUsuario.TabIndex = 3;
@@ -95,7 +95,7 @@
             // txtTelefone
             // 
             this.txtTelefone.Location = new System.Drawing.Point(340, 44);
-            this.txtTelefone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTelefone.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(113, 22);
             this.txtTelefone.TabIndex = 8;
@@ -136,7 +136,7 @@
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(57, 44);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(232, 22);
             this.txtEmail.TabIndex = 6;
@@ -144,7 +144,7 @@
             // txtRA
             // 
             this.txtRA.Location = new System.Drawing.Point(377, 12);
-            this.txtRA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRA.Margin = new System.Windows.Forms.Padding(4);
             this.txtRA.Name = "txtRA";
             this.txtRA.Size = new System.Drawing.Size(76, 22);
             this.txtRA.TabIndex = 2;
@@ -163,7 +163,7 @@
             // txtNome
             // 
             this.txtNome.Location = new System.Drawing.Point(57, 12);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(4);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(269, 22);
             this.txtNome.TabIndex = 4;
@@ -192,7 +192,7 @@
             this.listView.GridLines = true;
             this.listView.HideSelection = false;
             this.listView.Location = new System.Drawing.Point(11, 47);
-            this.listView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listView.Margin = new System.Windows.Forms.Padding(4);
             this.listView.Name = "listView";
             this.listView.Size = new System.Drawing.Size(496, 228);
             this.listView.TabIndex = 4;
@@ -218,7 +218,7 @@
             this.panel2.Controls.Add(this.listView);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 197);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.panel2.Size = new System.Drawing.Size(519, 289);
@@ -228,7 +228,7 @@
             // 
             this.carregamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.carregamento.Location = new System.Drawing.Point(161, 119);
-            this.carregamento.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.carregamento.Margin = new System.Windows.Forms.Padding(5);
             this.carregamento.Name = "carregamento";
             this.carregamento.Size = new System.Drawing.Size(224, 98);
             this.carregamento.TabIndex = 9;
@@ -237,7 +237,7 @@
             // btnAdicionar
             // 
             this.btnAdicionar.Location = new System.Drawing.Point(11, 11);
-            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(100, 28);
             this.btnAdicionar.TabIndex = 8;
@@ -249,7 +249,7 @@
             // btnRemover
             // 
             this.btnRemover.Location = new System.Drawing.Point(119, 11);
-            this.btnRemover.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRemover.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(100, 28);
             this.btnRemover.TabIndex = 6;
@@ -265,10 +265,10 @@
             this.ClientSize = new System.Drawing.Size(519, 486);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(533, 499);
             this.Name = "CadastroAluno";
-            this.Text = "CadastroAluno";
+            this.Text = "Cadastro de Aluno";
             this.Load += new System.EventHandler(this.CadastroAluno_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
