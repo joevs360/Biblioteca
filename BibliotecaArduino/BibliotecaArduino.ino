@@ -97,5 +97,6 @@ void loop() {
          conteudo.concat(String(mfrc522.uid.uidByte[i], HEX));
       }
       Serial.println(conteudo.substring(1));
+      lerRFID =false;
    }
 }

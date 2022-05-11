@@ -21,11 +21,41 @@ namespace Biblioteca.Data
             database.CreateTableAsync<Locacao>().Wait();
             database.CreateTableAsync<Livro>().Wait();
             database.CreateTableAsync<Autor>().Wait();
+            database.CreateTableAsync<Porta>().Wait();
         }
         //Delete geral
         private async Task<int> DeleteAsync(object obj)
         {
             return await database.DeleteAsync(obj);
+        }
+        //Porta
+        public async Task<Porta> GetPorta()
+        {
+            return await database.Table<Porta>().FirstOrDefaultAsync();
+        }
+        public async Task<bool> SalvarPorta(Porta porta)
+        {
+            try
+            {
+                var portaDoBanco = await GetPorta();
+                if (portaDoBanco == null)
+                {
+                    await database.InsertAsync(porta);
+                    return true;
+                }
+                else
+                {
+                    portaDoBanco.Texto = porta.Texto;
+                    await database.UpdateAsync(portaDoBanco);
+                    return true;
+                }
+                return false;
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         //RFID
@@ -79,8 +109,16 @@ namespace Biblioteca.Data
                     MessageBox.Show("Não foi possivel vincular com o id do usuário!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-                await database.InsertAsync(rfid);
-                return true;
+               if(await GetRFID(rfid.ID) == null)
+                {
+                    await database.InsertAsync(rfid);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Esse RFID já está cadastrado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
             }
             catch (Exception)
             {
@@ -93,7 +131,7 @@ namespace Biblioteca.Data
             try
             {
                 RFID rfid = await database.Table<RFID>().Where(r => r.ID == id).FirstOrDefaultAsync();
-                if (rfid == null)
+                if (rfid != null)
                 {
                     var user = await database.Table<Usuario>().Where(u => u.ID == rfid.IdUsuario).FirstOrDefaultAsync();
                     if(user == null)
@@ -245,7 +283,7 @@ namespace Biblioteca.Data
                 locacao.LivroID = livro.ID;
                 locacao.UsuarioID = usuario.ID;
 
-                int qtdDisponivel = await QuantidadeLocado(livro.ID);
+                int qtdLocado = await QuantidadeLocado(livro.ID);
                 
                 //Validações
                
@@ -259,7 +297,7 @@ namespace Biblioteca.Data
                     MessageBox.Show("Nenhum usuário selecionado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-                if (livro.QuantidadeTotal > qtdDisponivel)
+                if (livro.QuantidadeTotal <= qtdLocado)
                 {
                     MessageBox.Show("O livro está indisponível", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
@@ -369,6 +407,7 @@ namespace Biblioteca.Data
                 else
                 {
                     await database.UpdateAsync(livro);
+                    MessageBox.Show("Salvo com sucesso!", "Aviso");
                 }
                 return true;
             }

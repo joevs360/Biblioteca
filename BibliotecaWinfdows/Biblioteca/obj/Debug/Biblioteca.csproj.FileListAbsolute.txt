@@ -107,3 +107,10 @@ E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\bin\Debug\Views\Carregament
 E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\bin\Debug\Views\Carregamento.cs
 E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\bin\Debug\Views\Carregamento.Designer.cs
 E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\obj\Debug\Biblioteca.Views.Carregamento.resources
+C:\GitHub\Biblioteca\BibliotecaWinfdows\Biblioteca\bin\Debug\Views\Carregamento.resx
+C:\GitHub\Biblioteca\BibliotecaWinfdows\Biblioteca\bin\Debug\Views\Carregamento.cs
+C:\GitHub\Biblioteca\BibliotecaWinfdows\Biblioteca\bin\Debug\Views\Carregamento.Designer.cs
+C:\GitHub\Biblioteca\BibliotecaWinfdows\Biblioteca\obj\Debug\Biblioteca.Views.CadastroLivro.resources
+C:\GitHub\Biblioteca\BibliotecaWinfdows\Biblioteca\obj\Debug\Biblioteca.Views.Carregamento.resources
+C:\GitHub\Biblioteca\BibliotecaWinfdows\Biblioteca\obj\Debug\Biblioteca.Views.ListaAutores.resources
+C:\GitHub\Biblioteca\BibliotecaWinfdows\Biblioteca\obj\Debug\Biblioteca.Views.ListaLivroPage.resources

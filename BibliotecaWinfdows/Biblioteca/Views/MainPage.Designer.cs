@@ -71,15 +71,15 @@
             this.arduinoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1099, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1465, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
             // arduinoToolStripMenuItem
@@ -87,14 +87,14 @@
             this.arduinoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.serialToolStripMenuItem});
             this.arduinoToolStripMenuItem.Name = "arduinoToolStripMenuItem";
-            this.arduinoToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.arduinoToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
             this.arduinoToolStripMenuItem.Text = "Conexão";
             // 
             // serialToolStripMenuItem
             // 
             this.serialToolStripMenuItem.Image = global::Biblioteca.Properties.Resources.usb;
             this.serialToolStripMenuItem.Name = "serialToolStripMenuItem";
-            this.serialToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.serialToolStripMenuItem.Size = new System.Drawing.Size(129, 26);
             this.serialToolStripMenuItem.Text = "Serial";
             this.serialToolStripMenuItem.Click += new System.EventHandler(this.serialToolStripMenuItem_Click);
             // 
@@ -106,9 +106,10 @@
             this.flowLayoutPanel1.Controls.Add(this.panel4);
             this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 24);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 28);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1099, 132);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1465, 162);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // panel2
@@ -116,10 +117,10 @@
             this.panel2.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(10, 10);
-            this.panel2.Margin = new System.Windows.Forms.Padding(10);
+            this.panel2.Location = new System.Drawing.Point(13, 12);
+            this.panel2.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(146, 110);
+            this.panel2.Size = new System.Drawing.Size(195, 135);
             this.panel2.TabIndex = 8;
             this.panel2.Click += new System.EventHandler(this.AlunosClick);
             // 
@@ -128,8 +129,9 @@
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Image = global::Biblioteca.Properties.Resources.pessoas1;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(146, 81);
+            this.pictureBox2.Size = new System.Drawing.Size(195, 98);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
@@ -141,9 +143,10 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(0, 81);
+            this.label1.Location = new System.Drawing.Point(0, 98);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 29);
+            this.label1.Size = new System.Drawing.Size(102, 37);
             this.label1.TabIndex = 3;
             this.label1.Text = "Alunos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -154,10 +157,10 @@
             this.panel1.BackColor = System.Drawing.Color.Orange;
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(176, 10);
-            this.panel1.Margin = new System.Windows.Forms.Padding(10);
+            this.panel1.Location = new System.Drawing.Point(234, 12);
+            this.panel1.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(146, 110);
+            this.panel1.Size = new System.Drawing.Size(195, 135);
             this.panel1.TabIndex = 7;
             this.panel1.Click += new System.EventHandler(this.locacoes_Click);
             // 
@@ -166,8 +169,9 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::Biblioteca.Properties.Resources.locacao;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(146, 81);
+            this.pictureBox1.Size = new System.Drawing.Size(195, 98);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -179,9 +183,10 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label3.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(0, 81);
+            this.label3.Location = new System.Drawing.Point(0, 98);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 29);
+            this.label3.Size = new System.Drawing.Size(118, 37);
             this.label3.TabIndex = 3;
             this.label3.Text = "Locação";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -192,10 +197,10 @@
             this.panel4.BackColor = System.Drawing.Color.OrangeRed;
             this.panel4.Controls.Add(this.pictureBox4);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(342, 10);
-            this.panel4.Margin = new System.Windows.Forms.Padding(10);
+            this.panel4.Location = new System.Drawing.Point(455, 12);
+            this.panel4.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(146, 110);
+            this.panel4.Size = new System.Drawing.Size(195, 135);
             this.panel4.TabIndex = 10;
             this.panel4.Click += new System.EventHandler(this.AutoresClick);
             // 
@@ -204,8 +209,9 @@
             this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox4.Image = global::Biblioteca.Properties.Resources.autor;
             this.pictureBox4.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(146, 81);
+            this.pictureBox4.Size = new System.Drawing.Size(195, 98);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 4;
             this.pictureBox4.TabStop = false;
@@ -217,9 +223,10 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label4.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(0, 81);
+            this.label4.Location = new System.Drawing.Point(0, 98);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 29);
+            this.label4.Size = new System.Drawing.Size(115, 37);
             this.label4.TabIndex = 3;
             this.label4.Text = "Autores";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -230,10 +237,10 @@
             this.panel3.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.panel3.Controls.Add(this.pictureBox3);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(508, 10);
-            this.panel3.Margin = new System.Windows.Forms.Padding(10);
+            this.panel3.Location = new System.Drawing.Point(676, 12);
+            this.panel3.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(146, 110);
+            this.panel3.Size = new System.Drawing.Size(195, 135);
             this.panel3.TabIndex = 9;
             this.panel3.Click += new System.EventHandler(this.LivrosClick);
             // 
@@ -242,8 +249,9 @@
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox3.Image = global::Biblioteca.Properties.Resources.livros;
             this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(146, 81);
+            this.pictureBox3.Size = new System.Drawing.Size(195, 98);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
@@ -255,9 +263,10 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label2.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(0, 81);
+            this.label2.Location = new System.Drawing.Point(0, 98);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 29);
+            this.label2.Size = new System.Drawing.Size(90, 37);
             this.label2.TabIndex = 3;
             this.label2.Text = "Livros";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -265,11 +274,12 @@
             // 
             // MainPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1099, 604);
+            this.ClientSize = new System.Drawing.Size(1465, 743);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainPage";
             this.Text = "MainPage";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainPage_FormClosed);

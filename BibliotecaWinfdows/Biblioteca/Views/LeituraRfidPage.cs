@@ -33,11 +33,13 @@ namespace Biblioteca.Views
                 //Envia para o arduino iniciar a leitura
                 await Task.Delay(100);
                 main.arduino.enviarDados("[LI]");
+                main.UltimoDado = "";
                 mudarStatus("Aguardando a leitura do RFID...", Properties.Resources.rfidgif);
 
                 if (await main.lerDados(10000))
                 {
                     retorno = main.UltimoDado;
+                    this.Close();
                 }
                 else
                 {
@@ -66,8 +68,13 @@ namespace Biblioteca.Views
             else
             {
                 mudarStatus("Não foi possível verificar a conexão\nDado Recebido: "+main.UltimoDado, Properties.Resources.erro, true);
-                ConexaoPage conexao = new ConexaoPage(main);
-                conexao.Visible = true;
+                ConexaoPage conexao = new ConexaoPage(main,true);
+                conexao.ShowDialog();
+                if(conexao.porta != null)
+                {
+                    lerRFID();
+                }
+                
             }
           
 

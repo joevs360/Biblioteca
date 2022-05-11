@@ -37,12 +37,14 @@ namespace Biblioteca.Views
         {
             await carregamento.carregar(true, "Buscando...");
             List<RFID> rfids = await Program.Database.GetRFIDs(usuario.ID);
+            listView.Items.Clear();
             await carregamento.carregar(true, "Listando...");
             foreach (var item in rfids)
             {
                 ListViewItem lvi = new ListViewItem();
-                lvi.SubItems.Add(item.dataCadastro.ToString("dd/MM/yyyy"));
+                lvi.SubItems[0].Text = (item.dataCadastro.ToString("dd/MM/yyyy"));
                 lvi.SubItems.Add(item.ID);
+                
                 listView.Items.Add(lvi);
             }
             await carregamento.carregar(false);
@@ -64,7 +66,7 @@ namespace Biblioteca.Views
         {
             if(listView.SelectedItems.Count > 0)
             {
-                btnRemover.Visible=false;
+                btnRemover.Visible= true;
             }
             else
             {
@@ -123,16 +125,22 @@ namespace Biblioteca.Views
         {
             await carregamento.carregar(true, "Listando...");
             List<string> ids= new List<string>();
-            for(int i = 0; i < listView.CheckedItems.Count; i++)
+            for(int i = 0; i < listView.SelectedItems.Count; i++)
             {
-                ids.Add(listView.CheckedItems[i].SubItems[1].Text);
+                ids.Add(listView.SelectedItems[i].SubItems[1].Text);
             }
             await carregamento.carregar(true, "Removendo...");
             await Program.Database.RemoveRFID(ids);
+            listarRFIDS();
             await carregamento.carregar(false);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void carregamento_Load(object sender, EventArgs e)
         {
 
         }

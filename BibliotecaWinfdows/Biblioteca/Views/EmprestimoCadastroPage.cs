@@ -27,7 +27,8 @@ namespace Biblioteca.Views
             LeituraRfidPage leituraRfidPage = new LeituraRfidPage(main);
             leituraRfidPage.ShowDialog();
             string rfid = leituraRfidPage.retorno;
-            BuscarUsuario(rfid);
+            if (!string.IsNullOrWhiteSpace(rfid))
+               BuscarUsuario(rfid);
         }
         async void BuscarUsuario(string rfid)
         {
@@ -42,6 +43,11 @@ namespace Biblioteca.Views
                 txtNome.Text = usuario.Nome;
                 txtRA.Text = usuario.RA;
                 txtTelefone.Text = usuario.Telefone;
+                btnSalvar.Visible = true;
+            }
+            else
+            {
+                btnSalvar.Visible = false;
             }
         }
         private void listView_SelectedIndexChanged(object sender, EventArgs e)
@@ -75,6 +81,37 @@ namespace Biblioteca.Views
                 listView.Items.Add(lvi);
             }
             EscreverQuantidade();
+        }
+
+        private async void btnSalvar_Click(object sender, EventArgs e)
+        {
+            await carregamento1.carregar(true, "Salvando...");
+            List<Livro> temp = new List<Livro>();
+            foreach (var item in listLivros)
+            {
+                temp.Add(item);
+            }
+            foreach (var item in listLivros)
+            {
+                if (usuario != null)
+                {
+                   if(await Program.Database.SalvarLocacao(usuario, item))
+                    {
+                        temp.Remove(item);
+                    }
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Nenhum usuário selecionado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            listLivros = temp;
+            if (listLivros.Count == 0)
+            {
+                this.Close();
+            }
+            await carregamento1.carregar(false);
         }
     }
 }

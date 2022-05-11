@@ -97,6 +97,7 @@
     <Compile Include="Models\Autor.cs" />
     <Compile Include="Models\Locacao.cs" />
     <Compile Include="Models\Livro.cs" />
+    <Compile Include="Models\Porta.cs" />
     <Compile Include="Models\RFID.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Program.cs" />

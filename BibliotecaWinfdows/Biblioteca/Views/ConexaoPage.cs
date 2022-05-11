@@ -8,19 +8,36 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
+using Biblioteca.Models;
 
 namespace Biblioteca.Views
 {
     public partial class ConexaoPage : Form
     {
         MainPage mainPage;
-        public ConexaoPage(MainPage mainPage)
+        public Porta porta;
+        public ConexaoPage(MainPage mainPage, bool primeiro = false)
         {
             InitializeComponent();
             this.mainPage = mainPage;
             timer.Enabled = true;
-            
+            this.primeiro = primeiro;
+
+
         }
+        async void SelecionarDoBanco()
+        {
+            porta = await Program.Database.GetPorta();
+            if (porta != null)
+            {
+                if(comboPortas.Items.Contains(porta.Texto)){
+                    comboPortas.SelectedItem = porta.Texto;
+                    conectar();
+                }
+                
+            }
+        }
+        bool primeiro = true;
         private void atualizaListaCOMs()
         {
             int i;
@@ -56,6 +73,11 @@ namespace Biblioteca.Views
             {
                 comboPortas.Items.Add(s);
             }
+            if (primeiro)
+            {
+                primeiro = false;
+                SelecionarDoBanco();
+            }
             VerificarConexao();
         }
         private void VerificarConexao()
@@ -70,11 +92,10 @@ namespace Biblioteca.Views
             {
                 comboPortas.Enabled = true;
                 btnConectar.Text = "Conectar";
-                comboPortas.SelectedIndex = 0;
+                comboPortas.SelectedIndex = comboPortas.Items.Count - 1;
             }
         }
-
-        private void btnConectar_Click(object sender, EventArgs e)
+        void conectar()
         {
             if (mainPage.arduino.serialPorta.IsOpen == false)
             {
@@ -95,7 +116,7 @@ namespace Biblioteca.Views
                 try
                 {
                     mainPage.arduino.serialPorta.Close();
-                    
+
                 }
                 catch
                 {
@@ -106,6 +127,18 @@ namespace Biblioteca.Views
             VerificarConexao();
             if (mainPage.arduino.serialPorta.IsOpen)
                 this.Close();
+        }
+        async Task salvarConexao()
+        {
+            porta = new Porta();
+            porta.Texto = comboPortas.SelectedItem.ToString();
+            await Program.Database.SalvarPorta(porta);
+        }
+        private async void btnConectar_Click(object sender, EventArgs e)
+        {
+            await salvarConexao();
+            conectar();
+           
         }
 
         private void timer_Tick(object sender, EventArgs e)
