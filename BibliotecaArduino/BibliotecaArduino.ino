@@ -1,5 +1,6 @@
 #include <MFRC522.h>
 #include <SPI.h>
+#include <SoftwareSerial.h> 
 
 //Definindo pinos
 const int pinoLed = 8; 
@@ -14,13 +15,18 @@ const int RST_PIN = 9;
  * SDA: 10
  * RST: 09
  */
+
+ //Pino WIFI
+ const int pinWifiRX = 3;
+ const int pinWifiTX = 2;
+ SoftwareSerial wifi(pinWifiRX, pinWifiTX); 
  
 //Instanciando leitor
 MFRC522 mfrc522(SDA_PIN, RST_PIN); 
 
 //Variaveis globais
 bool lerRFID = false;
-
+bool lerWIFI = true;
 
 
 String lerSerial(){
@@ -63,23 +69,49 @@ void ligarRFID(char op){
 void setup() {
   // Iniciar o serial 
   Serial.begin(9600);
+  wifi.begin(115200);
   SPI.begin();      // Inicia  SPI bus
-  SPI.begin();// Inicia SPI bus
   mfrc522.PCD_Init();   // Inicia MFRC522
   
   //Iniciar pinos 
    pinMode(pinoLed, OUTPUT);
+
+   delay(100);
 }
 
 void loop() {
-  String opcao = lerSerial();
-  // Se a opcao não for vazia
-  if(opcao!=""){
-    switch(opcao[1]){
-      case 'T': testar(opcao); break;
-      case 'L': ligarRFID(opcao[2]); break;
-    }
+  if(Serial.available() > 0){
+     String opcao = lerSerial();
+      // Se a opcao não for vazia
+      if(opcao!=""){
+        switch(opcao[1]){
+          case 'T': testar(opcao); break;
+          case 'L': ligarRFID(opcao[2]); break;
+          default:
+
+            //Enviar do serial pro wifi
+            if(opcao.indexOf("[WIFI]")!=-1){
+              lerWIFI = true;
+              opcao.replace("[WIFI]","");
+              wifi.flush();
+              wifi.println(opcao);
+            }
+          break;
+        }
+      }
   }
+  
+  if(wifi.available() && lerWIFI){
+    Serial.flush();
+    //Receber do wifi e enviar pro serial
+    String result = wifi.readString();
+    if(result.indexOf("Resposta: ")!=-1){
+       result.replace("Resposta: ","");
+       Serial.println("\n[WIFI] "+result);
+     } 
+     lerWIFI=false;
+  }
+ 
   if(lerRFID){
      String conteudo= "";
      byte letra;
@@ -97,6 +129,5 @@ void loop() {
          conteudo.concat(String(mfrc522.uid.uidByte[i], HEX));
       }
       Serial.println(conteudo.substring(1));
-      lerRFID =false;
    }
 }
