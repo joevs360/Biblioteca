@@ -153,10 +153,10 @@ String gerarID(String nome){
       result += "/";
       return result;
 }
-int tempMax =0;
+int tempMaxLeitura =0;
+int tempMaxFirebase = 3600000;
 void loop() {
-       if(tempMax > 2000){
-          tempMax = 0;  
+       if(tempMaxLeitura >= 2000){
            // A leitura da temperatura e umidade pode levar 250ms!
            // O atraso do sensor pode chegar a 2 segundos.
             float h = dht.readHumidity();
@@ -170,10 +170,25 @@ void loop() {
             {
               Serial.flush();
               Serial.println("Umidade: " + String(h)+ +" %t"+ "Temperatura: "+String(t)+ " *C");
+
+              if(tempMaxFirebase >= 3600000){
+                     Serial.println("Tranfirindo...");
+                     String nome = "Temperatura";
+                     String caminho = "/";
+                     caminho += "Hoje";
+                     caminho += "/";
+                     enviar("float", nome, caminho+nome, "0", String(t));
+                     nome = "Umidade";
+                     enviar("float", nome, caminho+nome, "0", String(h));
+                     tempMaxFirebase = 0;
+                }
             }
+          tempMaxLeitura = 0;  
       }
+
       delay(100);
-      tempMax +=100;
+      tempMaxLeitura +=100;
+      tempMaxFirebase +=100;
       if (Serial.available()){
             String dados = Serial.readString();
             Serial.println("Recebido: "+dados);
