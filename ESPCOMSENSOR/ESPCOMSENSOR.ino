@@ -3,6 +3,8 @@
 #elif defined(ESP8266)
 #include <ESP8266WiFi.h>
 #endif
+#include <NTPClient.h> 
+#include <WiFiUdp.h>
 
 #include <Firebase_ESP_Client.h>
 #include <addons/TokenHelper.h>
@@ -24,6 +26,10 @@ DHT dht(DHTPIN, DHTTYPE);
 #define DATABASE_URL "https://bibliotecaarduino-4d629-default-rtdb.firebaseio.com" 
 #define USER_EMAIL "joe.victor14@gmail.com"
 #define USER_PASSWORD "123456"
+
+//NTP
+WiFiUDP ntpUDP;
+NTPClient ntp(ntpUDP);
 
 
 FirebaseData fbdo;
@@ -52,7 +58,7 @@ void setup() {
     delay(300);
     Serial.print(".");
   }
-
+  
   Serial.println();
   Serial.print("Conectado IP: ");
   Serial.println(WiFi.localIP());
@@ -75,6 +81,9 @@ void setup() {
   Firebase.reconnectWiFi(true);
   Firebase.setDoubleDigits(5);
   config.timeout.serverResponse = 10 * 1000;
+
+  ntp.begin();
+  ntp.setTimeOffset(-10800);
 }
 
 void enviar(String tipo,String nome,String caminho, String id,String valor){
@@ -173,9 +182,24 @@ void loop() {
 
               if(tempMaxFirebase >= 3600000){
                      Serial.println("Tranfirindo...");
+                     String Dia, Hora;
+                      if (ntp.update()) {
+                        String result =   ntp.getFormattedDate();
+                        int indexT = result.indexOf('T');
+                        int indexZ = result.indexOf('Z');
+                        Dia = result.substring(0,indexT);
+                        Hora = result.substring(indexT+1,indexZ);
+                        
+                      } else {
+                          Serial.println("!Erro ao atualizar NTP!\n");
+                          return;
+                      }
+                     
                      String nome = "Temperatura";
                      String caminho = "/";
-                     caminho += "Hoje";
+                     caminho += Dia;
+                     caminho += "/";
+                     caminho += Hora;
                      caminho += "/";
                      enviar("float", nome, caminho+nome, "0", String(t));
                      nome = "Umidade";
