@@ -44,6 +44,23 @@ unsigned long count = 0;
 
 
 //Variaveis global
+void conectarFireBase(){
+  config.api_key = API_KEY;
+  auth.user.email = USER_EMAIL;
+  auth.user.password = USER_PASSWORD;
+  config.database_url = DATABASE_URL;
+  config.token_status_callback = tokenStatusCallback;
+
+  #if defined(ESP8266)
+  fbdo.setBSSLBufferSize(2048, 2048 );
+  #endif
+  fbdo.setResponseSize(2048);
+
+  Firebase.begin(&config, &auth);
+  Firebase.reconnectWiFi(true);
+  Firebase.setDoubleDigits(5);
+  config.timeout.serverResponse = 10 * 1000;  
+}
 
 void setup() {
   delay(2000);
@@ -66,27 +83,14 @@ void setup() {
   
   delay(500);
   //Configurando conexão firebase
-  config.api_key = API_KEY;
-  auth.user.email = USER_EMAIL;
-  auth.user.password = USER_PASSWORD;
-  config.database_url = DATABASE_URL;
-  config.token_status_callback = tokenStatusCallback;
-
-  #if defined(ESP8266)
-  fbdo.setBSSLBufferSize(2048, 2048 );
-  #endif
-  fbdo.setResponseSize(2048);
-
-  Firebase.begin(&config, &auth);
-  Firebase.reconnectWiFi(true);
-  Firebase.setDoubleDigits(5);
-  config.timeout.serverResponse = 10 * 1000;
+  conectarFireBase();
 
   ntp.begin();
   ntp.setTimeOffset(-10800);
 }
 
 void enviar(String tipo,String nome,String caminho, String id,String valor){
+    testarFirebase();
     if(tipo == ""){
           Serial.println("SEM TIPO!");
           return;
@@ -129,7 +133,17 @@ void enviar(String tipo,String nome,String caminho, String id,String valor){
           Serial.println("] INVALIDO");
      }
 }
+void testarFirebase(){
+  String result = ("Resposta: %s\n", Firebase.RTDB.getInt(&fbdo, "/TesteConexao/") ? String(fbdo.to<int>()).c_str() : fbdo.errorReason().c_str());
+  if(result.indexOf("token is not ready")!=-1){
+    Serial.println("Reconectando no firebase...");
+    conectarFireBase();
+  }  
+}
+
+
 void ler(String tipo,String caminho){
+  testarFirebase();
    //Selecionar Tipo
       if(tipo == "bool"){Serial.printf("Resposta: %s\n", Firebase.RTDB.getBool(&fbdo, caminho) ? fbdo.to<bool>() ? "true" : "false" : fbdo.errorReason().c_str());}
       else if(tipo == "int"){ Serial.printf("Resposta: %s\n", Firebase.RTDB.getInt(&fbdo, caminho) ? String(fbdo.to<int>()).c_str() : fbdo.errorReason().c_str());}
@@ -143,6 +157,7 @@ void ler(String tipo,String caminho){
       }
 }
 void remover(String caminho){
+  testarFirebase();
   Serial.printf("Resposta: %s\n", Firebase.RTDB.deleteNode(&fbdo, caminho) ? "REMOVIDO"  : fbdo.errorReason().c_str() );
 }
 
@@ -163,7 +178,7 @@ String gerarID(String nome){
       return result;
 }
 int tempMaxLeitura =0;
-int tempMaxFirebase = 3600000;
+int tempMaxFirebase = 1800000;
 void loop() {
        if(tempMaxLeitura >= 2000){
            // A leitura da temperatura e umidade pode levar 250ms!
@@ -179,9 +194,9 @@ void loop() {
             {
               Serial.flush();
               Serial.println("Umidade: " + String(h)+ +" %t"+ "Temperatura: "+String(t)+ " *C");
-
-              if(tempMaxFirebase >= 3600000){
-                     Serial.println("Tranfirindo...");
+              Serial.println("Firebase Ultima Atualizacao: "+String(tempMaxFirebase)+"ms" );
+              if(tempMaxFirebase >= 1800000 ){
+                     Serial.println("Transfirindo...");
                      String Dia, Hora;
                       if (ntp.update()) {
                         String result =   ntp.getFormattedDate();
@@ -213,6 +228,8 @@ void loop() {
       delay(100);
       tempMaxLeitura +=100;
       tempMaxFirebase +=100;
+    
+      
       if (Serial.available()){
             String dados = Serial.readString();
             Serial.println("Recebido: "+dados);
