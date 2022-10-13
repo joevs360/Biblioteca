@@ -62,10 +62,7 @@ void conectarFireBase(){
   config.timeout.serverResponse = 10 * 1000;  
 }
 
-void setup() {
-  delay(2000);
-  dht.begin();
-  Serial.begin(115200);
+void conectarWifi(){
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
 
   delay(300);
@@ -79,8 +76,14 @@ void setup() {
   Serial.println();
   Serial.print("Conectado IP: ");
   Serial.println(WiFi.localIP());
-  Serial.println();
-  
+  Serial.println();  
+}
+
+void setup() {
+  delay(2000);
+  dht.begin();
+  Serial.begin(115200);
+  conectarWifi();
   delay(500);
   //Configurando conexão firebase
   conectarFireBase();
@@ -136,8 +139,8 @@ void enviar(String tipo,String nome,String caminho, String id,String valor){
 void testarFirebase(){
   String result = ("Resposta: %s\n", Firebase.RTDB.getInt(&fbdo, "/TesteConexao/") ? String(fbdo.to<int>()).c_str() : fbdo.errorReason().c_str());
   if(result.indexOf("token is not ready")!=-1){
-    Serial.println("Reconectando no firebase...");
-    conectarFireBase();
+    Serial.println("Não foi possivel conectar com o firebase, reiniciando...");
+    ESP.restart();
   }  
 }
 
