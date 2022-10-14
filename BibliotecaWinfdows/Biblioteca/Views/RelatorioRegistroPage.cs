@@ -26,7 +26,7 @@ namespace Biblioteca.Views
         async void AtualizarGraficos()
         {
 
-            await carregamento1.carregar(true);
+            //await carregamento1.carregar(true);
             List<Registro> registros = new List<Registro>();
 
             List<Registro> media = new List<Registro>();
@@ -134,7 +134,7 @@ namespace Biblioteca.Views
                 }
             }
 
-            await carregamento1.carregar(false);
+          //  await carregamento1.carregar(false);
 
         }
 

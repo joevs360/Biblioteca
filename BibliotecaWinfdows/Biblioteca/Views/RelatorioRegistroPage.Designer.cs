@@ -53,12 +53,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.graficoTemperatura = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.graficoUmidade = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.carregamento1 = new Biblioteca.Views.Carregamento();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graficoTemperatura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.graficoUmidade)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -75,7 +74,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(934, 126);
+            this.panel1.Size = new System.Drawing.Size(878, 126);
             this.panel1.TabIndex = 3;
             // 
             // label4
@@ -158,7 +157,8 @@
             // 
             // graficoTemperatura
             // 
-            this.graficoTemperatura.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.graficoTemperatura.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             chartArea1.Name = "ChartArea1";
             this.graficoTemperatura.ChartAreas.Add(chartArea1);
@@ -173,27 +173,27 @@
         System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(94)))), ((int)(((byte)(94))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(154)))), ((int)(((byte)(224)))))};
             series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series1.Legend = "Legend1";
             series1.LegendText = "Temperatura °C";
             series1.Name = "Temperatura";
             series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series2.Legend = "Legend1";
             series2.Name = "Média";
             series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series3.Legend = "Legend1";
             series3.Name = "Max";
             series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series4.Legend = "Legend1";
             series4.Name = "Min";
             this.graficoTemperatura.Series.Add(series1);
             this.graficoTemperatura.Series.Add(series2);
             this.graficoTemperatura.Series.Add(series3);
             this.graficoTemperatura.Series.Add(series4);
-            this.graficoTemperatura.Size = new System.Drawing.Size(900, 300);
+            this.graficoTemperatura.Size = new System.Drawing.Size(847, 192);
             this.graficoTemperatura.TabIndex = 4;
             this.graficoTemperatura.Text = "Temperatura";
             title1.Name = "Title1";
@@ -202,13 +202,14 @@
             // 
             // graficoUmidade
             // 
-            this.graficoUmidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.graficoUmidade.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             chartArea2.Name = "ChartArea1";
             this.graficoUmidade.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.graficoUmidade.Legends.Add(legend2);
-            this.graficoUmidade.Location = new System.Drawing.Point(3, 309);
+            this.graficoUmidade.Location = new System.Drawing.Point(3, 201);
             this.graficoUmidade.Name = "graficoUmidade";
             this.graficoUmidade.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.graficoUmidade.PaletteCustomColors = new System.Drawing.Color[] {
@@ -217,71 +218,74 @@
         System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(94)))), ((int)(((byte)(94))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(154)))), ((int)(((byte)(224)))))};
             series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series5.Legend = "Legend1";
             series5.LegendText = "Umidade Relativa (%)";
             series5.Name = "Umidade";
             series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series6.Legend = "Legend1";
             series6.Name = "Média";
             series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series7.Legend = "Legend1";
             series7.Name = "Max";
             series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series8.Legend = "Legend1";
             series8.Name = "Min";
             this.graficoUmidade.Series.Add(series5);
             this.graficoUmidade.Series.Add(series6);
             this.graficoUmidade.Series.Add(series7);
             this.graficoUmidade.Series.Add(series8);
-            this.graficoUmidade.Size = new System.Drawing.Size(695, 309);
+            this.graficoUmidade.Size = new System.Drawing.Size(847, 193);
             this.graficoUmidade.TabIndex = 5;
             this.graficoUmidade.Text = "Umidade";
             title2.Name = "Title1";
             title2.Text = "Umidade (%)";
             this.graficoUmidade.Titles.Add(title2);
             // 
-            // flowLayoutPanel1
+            // tableLayoutPanel1
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.Controls.Add(this.graficoTemperatura);
-            this.flowLayoutPanel1.Controls.Add(this.graficoUmidade);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 133);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(909, 616);
-            this.flowLayoutPanel1.TabIndex = 20;
-            // 
-            // carregamento1
-            // 
-            this.carregamento1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.carregamento1.Location = new System.Drawing.Point(378, 442);
-            this.carregamento1.Margin = new System.Windows.Forms.Padding(4);
-            this.carregamento1.Name = "carregamento1";
-            this.carregamento1.Size = new System.Drawing.Size(160, 148);
-            this.carregamento1.TabIndex = 19;
-            this.carregamento1.Visible = false;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.graficoUmidade, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.graficoTemperatura, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 133);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(853, 397);
+            this.tableLayoutPanel1.TabIndex = 21;
             // 
             // RelatorioRegistroPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 761);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.carregamento1);
+            this.ClientSize = new System.Drawing.Size(878, 542);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel1);
-            this.MinimumSize = new System.Drawing.Size(950, 800);
+            this.MinimumSize = new System.Drawing.Size(700, 450);
             this.Name = "RelatorioRegistroPage";
             this.Text = "RelatorioRegistroPage";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graficoTemperatura)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.graficoUmidade)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -299,7 +303,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart graficoUmidade;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboTipo;
-        private Carregamento carregamento1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
