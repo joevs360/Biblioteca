@@ -237,7 +237,7 @@
             this.graficoUmidade.Series.Add(series6);
             this.graficoUmidade.Series.Add(series7);
             this.graficoUmidade.Series.Add(series8);
-            this.graficoUmidade.Size = new System.Drawing.Size(900, 300);
+            this.graficoUmidade.Size = new System.Drawing.Size(695, 309);
             this.graficoUmidade.TabIndex = 5;
             this.graficoUmidade.Text = "Umidade";
             title2.Name = "Title1";

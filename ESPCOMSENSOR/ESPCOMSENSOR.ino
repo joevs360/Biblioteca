@@ -44,6 +44,9 @@ unsigned long count = 0;
 
 
 //Variaveis global
+bool notificar = false;
+bool notificado = false;
+
 void conectarFireBase(){
   config.api_key = API_KEY;
   auth.user.email = USER_EMAIL;
@@ -77,6 +80,16 @@ void conectarWifi(){
   Serial.print("Conectado IP: ");
   Serial.println(WiFi.localIP());
   Serial.println();  
+}
+
+void VerificarAumento(float temp){
+  if(temp >= 45){
+     notificar = true; 
+   }  
+   else if(temp <= 30){
+     notificar  = false;
+     notificado = false;
+   }
 }
 
 void setup() {
@@ -197,8 +210,8 @@ void loop() {
             {
               Serial.flush();
               Serial.println("Umidade: " + String(h)+ +" %t"+ "Temperatura: "+String(t)+ " *C");
-              Serial.println("Firebase Ultima Atualizacao: "+String(tempMaxFirebase)+"ms" );
-              if(tempMaxFirebase >= 1800000 ){
+              VerificarAumento(t);
+              if(tempMaxFirebase >= 1800000 || (notificar && !notificado)){
                      Serial.println("Transfirindo...");
                      String Dia, Hora;
                       if (ntp.update()) {
@@ -209,7 +222,7 @@ void loop() {
                         Hora = result.substring(indexT+1,indexZ);
                         
                       } else {
-                          Serial.println("!Erro ao atualizar NTP!\n");
+                          Serial.println("Erro ao atualizar NTP!\n");
                           return;
                       }
                      
@@ -223,6 +236,12 @@ void loop() {
                      nome = "Umidade";
                      enviar("float", nome, caminho, nome, String(h));
                      tempMaxFirebase = 0;
+
+                     if(notificar && !notificado){
+                       notificado = true; 
+                       Serial.println("TEMPERATURA MUITO ALTA!!!\n");
+                       // fazer parte da notificação
+                     }
                 }
             }
           tempMaxLeitura = 0;  

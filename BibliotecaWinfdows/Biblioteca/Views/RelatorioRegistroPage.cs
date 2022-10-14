@@ -26,7 +26,7 @@ namespace Biblioteca.Views
         async void AtualizarGraficos()
         {
 
-            carregamento1.Visible = true;
+            await carregamento1.carregar(true);
             List<Registro> registros = new List<Registro>();
 
             List<Registro> media = new List<Registro>();
@@ -133,8 +133,8 @@ namespace Biblioteca.Views
                     graficoUmidade.Series["Min"].Points.AddXY(texto, min[i].Umidade);
                 }
             }
-         
-            carregamento1.Visible = false;
+
+            await carregamento1.carregar(false);
 
         }
 
