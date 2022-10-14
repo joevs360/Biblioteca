@@ -110,6 +110,11 @@ namespace Biblioteca.Views
             ListaAutores listaAutores = new ListaAutores();
             listaAutores.ShowDialog();
         }
+        private void RelatorioClick(object sender, EventArgs e)
+        {
+            RelatorioRegistroPage relatorioRegistroPage = new RelatorioRegistroPage();
+            relatorioRegistroPage.ShowDialog();
+        }
 
         private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {

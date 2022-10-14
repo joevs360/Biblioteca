@@ -114,3 +114,12 @@ C:\GitHub\Biblioteca\BibliotecaWinfdows\Biblioteca\obj\Debug\Biblioteca.Views.Ca
 C:\GitHub\Biblioteca\BibliotecaWinfdows\Biblioteca\obj\Debug\Biblioteca.Views.Carregamento.resources
 C:\GitHub\Biblioteca\BibliotecaWinfdows\Biblioteca\obj\Debug\Biblioteca.Views.ListaAutores.resources
 C:\GitHub\Biblioteca\BibliotecaWinfdows\Biblioteca\obj\Debug\Biblioteca.Views.ListaLivroPage.resources
+E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\bin\Debug\Firebase.dll
+E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\bin\Debug\LiteDB.dll
+E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\bin\Debug\Newtonsoft.Json.dll
+E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\bin\Debug\System.Reactive.dll
+E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\bin\Debug\Firebase.xml
+E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\bin\Debug\LiteDB.xml
+E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\bin\Debug\Newtonsoft.Json.xml
+E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\bin\Debug\System.Reactive.xml
+E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\obj\Debug\Biblioteca.Views.RelatorioRegistroPage.resources

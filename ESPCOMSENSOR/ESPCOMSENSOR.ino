@@ -116,7 +116,7 @@ void enviar(String tipo,String nome,String caminho, String id,String valor){
      }
 
      //Pegar ID
-     if(id.toInt() <= 0){
+     if(isDigit(id[0]) && id.toInt() <= 0){
       caminho +=gerarID(nome);
      }
      else{
@@ -214,14 +214,14 @@ void loop() {
                       }
                      
                      String nome = "Temperatura";
-                     String caminho = "/";
+                     String caminho = "/Registro/";
                      caminho += Dia;
                      caminho += "/";
                      caminho += Hora;
                      caminho += "/";
-                     enviar("float", nome, caminho+nome, "0", String(t));
+                     enviar("float", nome, caminho, nome, String(t));
                      nome = "Umidade";
-                     enviar("float", nome, caminho+nome, "0", String(h));
+                     enviar("float", nome, caminho, nome, String(h));
                      tempMaxFirebase = 0;
                 }
             }
