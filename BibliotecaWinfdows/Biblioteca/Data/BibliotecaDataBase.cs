@@ -272,6 +272,15 @@ namespace Biblioteca.Data
         {
            return await database.Table<Locacao>().Where(l => l.LivroID == idLivro).CountAsync();
         }
+        public async Task<bool> AtualizarLocacao(Locacao locacao)
+        {
+            try
+            {
+                await database.UpdateAsync(locacao);
+                return true;
+            }
+            catch (Exception ex) { return false; }
+        }
         public async Task<bool> SalvarLocacao(Usuario usuario , Livro livro)
         {
             try

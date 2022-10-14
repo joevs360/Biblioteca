@@ -1,4 +1,5 @@
 ﻿using Biblioteca.Models;
+using Biblioteca.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -132,10 +133,42 @@ namespace Biblioteca.Views
             await carregamento1.carregar(true, $"Buscando locações no banco de dados...");
             await carregamento2.carregar(true, $"Buscando locações no banco de dados...");
             LocacoesBD = await Program.Database.GetLocacoes();
-           
+            var atrasados = LocacoesBD.Where(l => l.dataInicio.AddDays(diaMaximo) <= DateTime.Now).ToList();
             ListarLocacoes(listView1, LocacoesBD.Where(l => l.dataInicio.AddDays(diaMaximo) > DateTime.Now).ToList(), carregamento1);
-            ListarLocacoes(listView2, LocacoesBD.Where(l => l.dataInicio.AddDays(diaMaximo) <= DateTime.Now).ToList(), carregamento2);
+            ListarLocacoes(listView2, atrasados, carregamento2);
             await carregamento1.carregar(false, $"Buscando locações no banco de dados...");
+            atrasados.ForEach(async l =>
+            {
+                if (!l.notificado)
+                {
+                    Usuario usuario = await Program.Database.GetUsuarioByID(l.UsuarioID);
+                    Livro livro = await Program.Database.GetLivro(l.LivroID);
+                    //Enviar emails 
+                    string mensagem = $@"
+Olá {usuario.Nome}
+
+A devolução do livro deveria ocorrer até o dia {l.dataInicio.AddDays(diaMaximo).ToString("dd/MM/YYYY")}, porém ainda não consta em nosso sistema, por favor verifique
+
+Titulo: {livro.Nome}
+
+Você deve fazer a renovação até o dia {l.dataInicio.AddDays(diaMaximo + 2).ToString("dd/MM/YYYY")}, ou devolvê-lo em nosso balcão.
+
+Caso a biblioteca não esteja aberta no dia indicado, você deve comparecer no primeiro dia de funcionamento após essa data.
+
+Esta é uma mensagem automática. Por favor, não responda!
+";
+
+                    if(EmailService.EnviaEmail(usuario.Email, "Atraso na devolução do livro", mensagem))
+                    {
+                        l.notificado = true;
+                        //atualizar notificação
+                        Program.Database.AtualizarLocacao(l);
+                    }
+
+                   
+                }
+            });
+            await carregamento2.carregar(true, $"Enviando notificações..");
             await carregamento2.carregar(false, $"Buscando locações no banco de dados...");
         }
 
@@ -242,6 +275,12 @@ namespace Biblioteca.Views
             {
                 btnFinalizar.Visible = false;
             }
+        }
+
+        private void emailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EmailPage emailPage = new EmailPage();
+            emailPage.ShowDialog();
         }
     }
 }

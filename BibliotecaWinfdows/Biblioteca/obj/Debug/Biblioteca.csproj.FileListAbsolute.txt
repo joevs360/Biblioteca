@@ -123,3 +123,4 @@ E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\bin\Debug\LiteDB.xml
 E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\bin\Debug\Newtonsoft.Json.xml
 E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\bin\Debug\System.Reactive.xml
 E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\obj\Debug\Biblioteca.Views.RelatorioRegistroPage.resources
+E:\Projetos\Biblioteca\BibliotecaWinfdows\Biblioteca\obj\Debug\Biblioteca.Views.EmailPage.resources

@@ -15,5 +15,6 @@ namespace Biblioteca.Models
         public int UsuarioID { get; set; }
         public DateTime dataInicio { get; set; }
         public DateTime dataDevolucao { get; set; }
+        public bool notificado { get; set; }
     }
 }

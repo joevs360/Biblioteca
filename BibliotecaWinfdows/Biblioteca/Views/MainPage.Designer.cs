@@ -72,6 +72,7 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnFinalizar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.emailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -112,7 +113,8 @@
             this.alunosToolStripMenuItem,
             this.locaçãoToolStripMenuItem,
             this.autoresToolStripMenuItem,
-            this.livrosToolStripMenuItem});
+            this.livrosToolStripMenuItem,
+            this.emailToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.menuToolStripMenuItem.Text = "Opções";
@@ -120,28 +122,28 @@
             // alunosToolStripMenuItem
             // 
             this.alunosToolStripMenuItem.Name = "alunosToolStripMenuItem";
-            this.alunosToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.alunosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.alunosToolStripMenuItem.Text = "Alunos";
             this.alunosToolStripMenuItem.Click += new System.EventHandler(this.AlunosClick);
             // 
             // locaçãoToolStripMenuItem
             // 
             this.locaçãoToolStripMenuItem.Name = "locaçãoToolStripMenuItem";
-            this.locaçãoToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.locaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.locaçãoToolStripMenuItem.Text = "Locação";
             this.locaçãoToolStripMenuItem.Click += new System.EventHandler(this.locacoes_Click);
             // 
             // autoresToolStripMenuItem
             // 
             this.autoresToolStripMenuItem.Name = "autoresToolStripMenuItem";
-            this.autoresToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.autoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.autoresToolStripMenuItem.Text = "Autores";
             this.autoresToolStripMenuItem.Click += new System.EventHandler(this.AlunosClick);
             // 
             // livrosToolStripMenuItem
             // 
             this.livrosToolStripMenuItem.Name = "livrosToolStripMenuItem";
-            this.livrosToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.livrosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.livrosToolStripMenuItem.Text = "Livros";
             this.livrosToolStripMenuItem.Click += new System.EventHandler(this.AlunosClick);
             // 
@@ -534,6 +536,13 @@
             this.label5.TabIndex = 33;
             this.label5.Text = "Locações";
             // 
+            // emailToolStripMenuItem
+            // 
+            this.emailToolStripMenuItem.Name = "emailToolStripMenuItem";
+            this.emailToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.emailToolStripMenuItem.Text = "Email";
+            this.emailToolStripMenuItem.Click += new System.EventHandler(this.emailToolStripMenuItem_Click);
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -619,5 +628,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ToolStripMenuItem emailToolStripMenuItem;
     }
 }
