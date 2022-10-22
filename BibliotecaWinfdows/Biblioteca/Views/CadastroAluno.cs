@@ -91,7 +91,12 @@ namespace Biblioteca.Views
                 RFID rfid = new RFID();
                 rfid.ID = ID;
                 rfid.dataCadastro = DateTime.Now;
-                await new UsuarioDAO().SalvarRFID(rfid);
+                if(await new UsuarioDAO().SalvarRFID(rfid))
+                {
+                    if (!usuario.RFIDs.Exists(r=>r.ID == rfid.ID))
+                        usuario.RFIDs.Add(rfid);
+                }
+                    
                 listarRFIDS();
             }
             await carregamento.carregar(false);

@@ -37,9 +37,15 @@ namespace Biblioteca.DAO
             {
                 var GetItem = (await fc.Child("Usuario").OnceAsync<Usuario>()).Where(u=>u.Object.RFIDs.Exists(r=>r.ID == rfid)).FirstOrDefault();
                 Usuario usuario = new Usuario();
-
-                usuario = GetItem.Object;
-                usuario.Key = GetItem.Key;
+                if(GetItem != null)
+                {
+                    usuario = GetItem.Object;
+                    usuario.Key = GetItem.Key;
+                }
+                else
+                {
+                    usuario = null;
+                }
 
                 return usuario;
             }
