@@ -1,4 +1,5 @@
-﻿using Biblioteca.Models;
+﻿using Biblioteca.DAO;
+using Biblioteca.Models;
 using Biblioteca.Services;
 using System;
 using System.Collections.Generic;
@@ -141,7 +142,7 @@ namespace Biblioteca.Views
             {
                 if (!l.notificado)
                 {
-                    Usuario usuario = await Program.Database.GetUsuarioByID(l.UsuarioID);
+                    Usuario usuario = await new UsuarioDAO().GetUsuarioByID(l.UsuarioKey);
                     Livro livro = await Program.Database.GetLivro(l.LivroID);
                     //Enviar emails 
                     string mensagem = $@"
@@ -183,7 +184,7 @@ Esta é uma mensagem automática. Por favor, não responda!
                     var item = locacoes[i];
                     await carregamento.carregar(true, $"Carregando locação {carregamento.Tag}: {i + 1} de {qtd}");
                     Livro livro = Program.livros.Where(l => l.ID == item.LivroID).FirstOrDefault();
-                    Usuario aluno = await Program.Database.GetUsuarioByID(item.UsuarioID);
+                    Usuario aluno = await new UsuarioDAO().GetUsuarioByID(item.UsuarioKey);
 
                     if (livro == null)
                         livro = new Livro();

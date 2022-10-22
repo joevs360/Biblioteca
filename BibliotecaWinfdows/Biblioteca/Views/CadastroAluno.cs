@@ -1,4 +1,5 @@
-﻿using Biblioteca.Models;
+﻿using Biblioteca.DAO;
+using Biblioteca.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,7 +37,7 @@ namespace Biblioteca.Views
         async void listarRFIDS()
         {
             await carregamento.carregar(true, "Buscando...");
-            List<RFID> rfids = await Program.Database.GetRFIDs(usuario.ID);
+            List<RFID> rfids =usuario.RFIDs;
             listView.Items.Clear();
             await carregamento.carregar(true, "Listando...");
             foreach (var item in rfids)
@@ -89,9 +90,8 @@ namespace Biblioteca.Views
                 await carregamento.carregar(true, "Salvando RFID...");
                 RFID rfid = new RFID();
                 rfid.ID = ID;
-                rfid.IdUsuario = usuario.ID;
                 rfid.dataCadastro = DateTime.Now;
-                await Program.Database.SalvarRFID(rfid);
+                await new UsuarioDAO().SalvarRFID(rfid);
                 listarRFIDS();
             }
             await carregamento.carregar(false);
@@ -107,9 +107,9 @@ namespace Biblioteca.Views
             usuario.Telefone = txtTelefone.Text;
             usuario.Nome = txtNome.Text;
             //Salvar Aluno
-            if (await Program.Database.SalvarUsuario(usuario))
+            if (await new UsuarioDAO().SalvarUsuario(usuario))
             {
-                listUsuario = await Program.Database.GetAllUsuario();
+                listUsuario = await new UsuarioDAO().GetAllUsuarios();
                 usuario = listUsuario.Last();
                 ExibirDados();
                 btnAdicionar.Visible = true;
@@ -130,7 +130,7 @@ namespace Biblioteca.Views
                 ids.Add(listView.SelectedItems[i].SubItems[1].Text);
             }
             await carregamento.carregar(true, "Removendo...");
-            await Program.Database.RemoveRFID(ids);
+            new UsuarioDAO().RemoverRFID(ids,usuario);
             listarRFIDS();
             await carregamento.carregar(false);
         }

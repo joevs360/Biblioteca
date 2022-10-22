@@ -16,8 +16,6 @@ namespace Biblioteca.Data
         public BibliotecaDataBase(string dbPath)
         {
             database = new SQLiteAsyncConnection(dbPath);
-            database.CreateTableAsync<RFID>().Wait();
-            database.CreateTableAsync<Usuario>().Wait();
             database.CreateTableAsync<Locacao>().Wait();
             database.CreateTableAsync<Livro>().Wait();
             database.CreateTableAsync<Autor>().Wait();
@@ -56,205 +54,7 @@ namespace Biblioteca.Data
             }
         }
 
-        //RFID
-        public async Task<RFID> GetRFID(string id)
-        {
-            return await database.Table<RFID>().FirstOrDefaultAsync(r => r.ID == id);
-        }
-
-        public async Task<bool> RemoveRFID(List<string> ids)
-        {
-            try
-            {
-                if(MessageBox.Show($"Deseja deletar {ids.Count} RFID" , "Aviso", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    foreach (var id in ids)
-                    {
-                        RFID rfid = await GetRFID(id);
-                        if (rfid != null)
-                        {
-                            await DeleteAsync(rfid);
-                        }
-                    }
-                    return true;
-                }
-                return false;
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-           
-        }
-        public async Task<List<RFID>> GetRFIDs(int idUsuario)
-        {
-            return await database.Table<RFID>().Where(r => r.IdUsuario == idUsuario).ToListAsync();
-        }
-        public async Task<bool> SalvarRFID(RFID rfid)
-        {
-            try
-            {
-                //Validações
-                if (string.IsNullOrWhiteSpace(rfid.ID))
-                {
-                    MessageBox.Show("Não é possivel salvar um RFID zerado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-                if (rfid.IdUsuario == 0)
-                {
-                    MessageBox.Show("Não foi possivel vincular com o id do usuário!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-               if(await GetRFID(rfid.ID) == null)
-                {
-                    await database.InsertAsync(rfid);
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show("Esse RFID já está cadastrado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-            }
-            catch (Exception)
-            {
-                return false;            }
-        }
-
-        //Usuário
-        public async Task<Usuario> GetUsuarioByRFID(string id)
-        {
-            try
-            {
-                RFID rfid = await database.Table<RFID>().Where(r => r.ID == id).FirstOrDefaultAsync();
-                if (rfid != null)
-                {
-                    var user = await database.Table<Usuario>().Where(u => u.ID == rfid.IdUsuario).FirstOrDefaultAsync();
-                    if(user == null)
-                    {
-                        MessageBox.Show("Usuário não encontrado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return null;
-                    }
-                    return user;
-                }
-                MessageBox.Show("RFID não cadastrado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Erro: "+ e, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
-            }
-           
-        }
-        public async Task<Usuario> GetUsuarioByID(int id)
-        {
-            return await database.Table<Usuario>().Where(u => u.ID == id).FirstOrDefaultAsync();
-        }
-        public async Task<Usuario> GetUsuarioByRA(string ra)
-        {
-            return await database.Table<Usuario>().Where(u => u.RA == ra).FirstOrDefaultAsync();
-        }
-        public async Task<bool> RemoverUsuario(string ra)
-        {
-            try
-            {
-                var usuario = await GetUsuarioByRA(ra);
-                if(usuario == null)
-                {
-                    MessageBox.Show("Usuário não encontrado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-                if (MessageBox.Show("Deseja deletar o usuário " + usuario.Nome, "Aviso", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    await DeleteAsync(usuario);
-                    return true;
-                }
-                return false;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Não foi possivel deletar esse usuário!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-        public async Task<bool> RemoverUsuario(List<string> ras)
-        {
-            try
-            {
-                if (MessageBox.Show($"Deseja deletar o {ras.Count} usuários ", "Aviso", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    foreach (var ra in ras)
-                    {
-                        var usuario = await GetUsuarioByRA(ra);
-                        if (usuario != null)
-                        {
-                            await database.DeleteAsync(usuario);
-                        }
-                    }
-                    return true;
-                }
-                return false;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Não foi possivel deletar alguns usuários!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-        public async Task<List<Usuario>> GetAllUsuario(int tipo=1)
-        {
-            return await database.Table<Usuario>().Where(u=>u.CategoriaUsuarioID == tipo).ToListAsync();
-        }
-        public async Task<bool> SalvarUsuario(Usuario usuario)
-        {
-            try
-            {
-                //Validações
-                if (string.IsNullOrWhiteSpace(usuario.Nome))
-                {
-                    MessageBox.Show("O campo do nome não pode ser vazio", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-                if (string.IsNullOrWhiteSpace(usuario.RA))
-                {
-                    MessageBox.Show("O campo do RA não pode ser vazio", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-                if (string.IsNullOrWhiteSpace(usuario.Telefone))
-                {
-                    MessageBox.Show("O campo do telefone não pode ser vazio", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-                if (string.IsNullOrWhiteSpace(usuario.Email))
-                {
-                    MessageBox.Show("O campo do e-mail não pode ser vazio", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-                
-
-                //Cadastrar ou editar
-                if (usuario.ID == 0)
-                {
-                    await database.InsertAsync(usuario);
-                    MessageBox.Show("Usuário cadastrado com sucesso!","Aviso");
-                }
-                else
-                {
-                    await database.UpdateAsync(usuario);
-                    MessageBox.Show("Usuário alterado com sucesso!", "Aviso");
-                }
-                return true;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Não foi possível salvar o usuário:\n"+e, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-
+       
         //Locação
         public async Task<List<Locacao>> GetLocacoesPorLivro(int idLivro)
         {
@@ -288,7 +88,7 @@ namespace Biblioteca.Data
                 Locacao locacao = new Locacao();
                 locacao.dataInicio = DateTime.Now;
                 locacao.LivroID = livro.ID;
-                locacao.UsuarioID = usuario.ID;
+                locacao.UsuarioKey = usuario.Key;
 
                 int qtdLocado = await QuantidadeLocado(livro.ID);
                 
@@ -299,7 +99,7 @@ namespace Biblioteca.Data
                     MessageBox.Show("Nenhum livro selecionado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-                if (locacao.UsuarioID == 0)
+                if (string.IsNullOrEmpty(locacao.UsuarioKey))
                 {
                     MessageBox.Show("Nenhum usuário selecionado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;

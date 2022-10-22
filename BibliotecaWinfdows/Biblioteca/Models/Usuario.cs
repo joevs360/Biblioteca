@@ -9,13 +9,12 @@ namespace Biblioteca.Models
 {
     public class Usuario
     {
-        [PrimaryKey, AutoIncrement]
-        public int ID { get; set; }
-        [Unique]
         public string RA { get; set; }
         public string Nome { get; set; }
         public string Email  { get; set; }
         public string Telefone { get; set; }
+        public string Key { get; set; }
+        public List<RFID> RFIDs { get; set; } = new List<RFID>();
         public int CategoriaUsuarioID { get; set; }
         /*
          * 1-Aluno

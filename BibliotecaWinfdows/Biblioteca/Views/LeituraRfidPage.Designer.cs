@@ -77,9 +77,9 @@
             this.imgStatus.Dock = System.Windows.Forms.DockStyle.Top;
             this.imgStatus.Image = global::Biblioteca.Properties.Resources.arduino;
             this.imgStatus.Location = new System.Drawing.Point(0, 0);
-            this.imgStatus.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.imgStatus.Margin = new System.Windows.Forms.Padding(10);
             this.imgStatus.Name = "imgStatus";
-            this.imgStatus.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.imgStatus.Padding = new System.Windows.Forms.Padding(10);
             this.imgStatus.Size = new System.Drawing.Size(232, 170);
             this.imgStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgStatus.TabIndex = 0;

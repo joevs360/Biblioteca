@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\RegistroDAO.cs" />
+    <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="Data\BibliotecaDataBase.cs" />
     <Compile Include="Data\FirebaseConfiguracao.cs" />
     <Compile Include="Models\Arduino.cs" />

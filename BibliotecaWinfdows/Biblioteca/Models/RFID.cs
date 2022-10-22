@@ -9,9 +9,7 @@ namespace Biblioteca.Models
 {
     public class RFID
     {
-        [PrimaryKey]
         public string ID { get; set; }
-        public int IdUsuario { get; set; }
         public DateTime dataCadastro { get; set; }
     }
     

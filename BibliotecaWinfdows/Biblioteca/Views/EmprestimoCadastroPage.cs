@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Biblioteca.DAO;
 using Biblioteca.Models;
 
 namespace Biblioteca.Views
@@ -32,7 +33,7 @@ namespace Biblioteca.Views
         }
         async void BuscarUsuario(string rfid)
         {
-            usuario = await Program.Database.GetUsuarioByRFID(rfid);
+            usuario = await new UsuarioDAO().GetUsuarioByRFID(rfid);
             ExibirUsuario();
         }
         void ExibirUsuario()

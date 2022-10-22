@@ -1,4 +1,5 @@
-﻿using Biblioteca.Models;
+﻿using Biblioteca.DAO;
+using Biblioteca.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,15 +17,15 @@ namespace Biblioteca.Views
         MainPage main;
         List<Usuario> listUsuario = new List<Usuario>();
         int qtd;
-        public AlunosPage(MainPage main, int tipo = 1)
+        public AlunosPage(MainPage main)
         {
             InitializeComponent();
             this.main = main;
-            buscarItens(tipo);
+            buscarItens();
         }
-        async void buscarItens(int tipo)
+        async void buscarItens()
         {
-            listUsuario = await Program.Database.GetAllUsuario(tipo);
+            listUsuario = await new UsuarioDAO().GetAllUsuarios();
             listarUsuarios();
         }
         void listarUsuarios(string filtro="")
@@ -37,6 +38,7 @@ namespace Biblioteca.Views
                 lvi.SubItems.Add(item.Nome);
                 lvi.SubItems.Add(item.Email);
                 lvi.SubItems.Add(item.Telefone);
+                lvi.Name = item.Key;
                 listView.Items.Add(lvi);
             }
             qtd = listUsuario.Count;
@@ -112,8 +114,8 @@ namespace Biblioteca.Views
         async void buscarUsuario()
         {
             await carregamento.carregar(true, "Consultando no banco...");
-            string r = listView.CheckedItems[0].SubItems[1].Text;
-            Usuario usuario = await Program.Database.GetUsuarioByRA(r);
+            string r = listView.CheckedItems[0].Name;
+            Usuario usuario = await new UsuarioDAO().GetUsuarioByID(r);
             if (usuario != null)
             {
                 await carregamento.carregar(true, "Aguardando alterações...");
@@ -132,8 +134,7 @@ namespace Biblioteca.Views
             await carregamento.carregar(true, "Deletando usuário...");
             if (listView.CheckedItems.Count == 1 )
             {
-                string r = listView.CheckedItems[0].SubItems[1].Text;
-                limpar =await Program.Database.RemoverUsuario(r);
+                limpar = await new UsuarioDAO().RemoverUsuario(listView.CheckedItems[0].Name);
             }
             else
             {
@@ -142,9 +143,9 @@ namespace Biblioteca.Views
                 for (int i =0; i< listView.CheckedItems.Count;i++)
                 {
                     await carregamento.carregar(true, $"Deletando usuários...\n {i/listView.CheckedItems.Count*100}%");
-                    ras.Add(listView.CheckedItems[i].SubItems[1].Text);
+                    ras.Add(listView.CheckedItems[i].Name);
                 }
-                limpar = await Program.Database.RemoverUsuario(ras);
+                limpar = await new UsuarioDAO().RemoverUsuario(ras);
 
             }           
             await carregamento.carregar(false, "Finalizando...");
