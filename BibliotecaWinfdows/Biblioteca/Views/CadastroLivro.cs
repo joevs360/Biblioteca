@@ -1,4 +1,5 @@
-﻿using Biblioteca.Models;
+﻿using Biblioteca.DAO;
+using Biblioteca.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,7 +54,7 @@ namespace Biblioteca.Views
                 txtQtd.Value = livro.QuantidadeTotal;
                 txtEditora.Text = livro.Editora;
                 
-                selectAutor.SelectedIndex = Program.autores.IndexOf(Program.autores.First(a => a.Id == livro.AutorID));
+                selectAutor.SelectedIndex = Program.autores.IndexOf(Program.autores.First(a => a.Key == livro.AutorKey));
             }
            
             await carregamento1.carregar(false);
@@ -62,7 +63,7 @@ namespace Biblioteca.Views
         {
             if(Program.autores.Count == 0)
             {
-                Program.autores = await Program.Database.GetAllAutores();
+                Program.autores = await new AutorDAO().GetAllAutores();
             }
             foreach (var item in Program.autores)
             {
@@ -78,7 +79,7 @@ namespace Biblioteca.Views
             livro.Editora = txtEditora.Text;
             if (selectAutor.SelectedIndex >= 0)
             {
-                livro.AutorID = Program.autores[selectAutor.SelectedIndex].Id;
+                livro.AutorKey = Program.autores[selectAutor.SelectedIndex].Key;
             }
             
             await carregamento1.carregar(true, "Salvando alterações...");

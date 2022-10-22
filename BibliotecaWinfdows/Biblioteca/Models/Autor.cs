@@ -9,8 +9,8 @@ namespace Biblioteca.Models
 {
     public class Autor
     {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
+ 
+        public string Key { get; set; }
         public string Nome{ get; set; }
     }
 }

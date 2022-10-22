@@ -1,4 +1,5 @@
-﻿using Biblioteca.Models;
+﻿using Biblioteca.DAO;
+using Biblioteca.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,7 +44,7 @@ namespace Biblioteca.Views
             }
             if (Program.autores.Count == 0)
             {
-                Program.autores = await Program.Database.GetAllAutores();
+                Program.autores = await new AutorDAO().GetAllAutores();
             }
             listarLivros();
         }
@@ -116,9 +117,9 @@ namespace Biblioteca.Views
         {
             listView.Items.Clear();
             foreach (var item in Program.livros.Where(u => u.Nome.ToUpper().Contains(filtro.ToUpper()) 
-            || (Program.autores.Where(a=>a.Nome.ToUpper().Contains(filtro.ToUpper())).FirstOrDefault()!=null && u.ID == Program.autores.Where(a => a.Nome.ToUpper().Contains(filtro.ToUpper())).FirstOrDefault().Id)))
+            || (Program.autores.Where(a=>a.Nome.ToUpper().Contains(filtro.ToUpper())).FirstOrDefault()!=null && u.AutorKey == Program.autores.Where(a => a.Nome.ToUpper().Contains(filtro.ToUpper())).FirstOrDefault().Key)))
             {
-                Autor autor = Program.autores.Where(a => a.Id == item.AutorID).FirstOrDefault();
+                Autor autor = Program.autores.Where(a => a.Key == item.AutorKey).FirstOrDefault();
                 ListViewItem lvi = new ListViewItem();
                 lvi.SubItems.Add(item.ID.ToString());
                 lvi.SubItems.Add(item.Nome);

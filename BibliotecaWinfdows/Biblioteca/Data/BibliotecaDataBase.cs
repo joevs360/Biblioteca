@@ -169,40 +169,40 @@ namespace Biblioteca.Data
         }
 
         //Autor
-        public async Task<List<Autor>> GetAllAutores()
-        {
-            return await database.Table<Autor>().ToListAsync();
-        }
-        public async Task<bool> SalvarAutor(Autor autor)
-        {
-            try
-            {
-                if (string.IsNullOrEmpty(autor.Nome))
-                {
-                    MessageBox.Show("Nome não pode ser em branco!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
+        //public async task<list<autor>> getallautores()
+        //{
+        //    return await database.table<autor>().tolistasync();
+        //}
+        //public async task<bool> salvarautor(autor autor)
+        //{
+        //    try
+        //    {
+        //        if (string.isnullorempty(autor.nome))
+        //        {
+        //            messagebox.show("nome não pode ser em branco!", "aviso", messageboxbuttons.ok, messageboxicon.error);
+        //            return false;
+        //        }
 
-                //Cadastrar ou editar
-                if (autor.Id == 0)
-                {
-                    await database.InsertAsync(autor);
-                    MessageBox.Show("Autor cadastrado com sucesso!", "Aviso");
-                }
-                else
-                {
-                    await database.UpdateAsync(autor);
-                    MessageBox.Show("Autor alterado com sucesso!", "Aviso");
-                }
-                return true;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Não foi possível salvar o autor","Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            
-        }
+        //        //cadastrar ou editar
+        //        if (autor.id == 0)
+        //        {
+        //            await database.insertasync(autor);
+        //            messagebox.show("autor cadastrado com sucesso!", "aviso");
+        //        }
+        //        else
+        //        {
+        //            await database.updateasync(autor);
+        //            messagebox.show("autor alterado com sucesso!", "aviso");
+        //        }
+        //        return true;
+        //    }
+        //    catch (exception)
+        //    {
+        //        messagebox.show("não foi possível salvar o autor", "aviso", messageboxbuttons.ok, messageboxicon.error);
+        //        return false;
+        //    }
+
+        //}
 
         //Livro
         public async Task<bool> SalvarLivro(Livro livro)
@@ -219,7 +219,7 @@ namespace Biblioteca.Data
                     MessageBox.Show("A edição tem que ser maior que zero", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-                if(livro.AutorID == 0)
+                if(livro.AutorKey == null)
                 {
                     MessageBox.Show("Nenhum autor foi selecionado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;

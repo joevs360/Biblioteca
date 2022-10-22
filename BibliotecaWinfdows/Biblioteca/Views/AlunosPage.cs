@@ -164,5 +164,15 @@ namespace Biblioteca.Views
         {
             listView.SelectedItems.Clear();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void AlunosPage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

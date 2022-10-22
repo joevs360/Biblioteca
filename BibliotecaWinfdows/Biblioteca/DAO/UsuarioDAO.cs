@@ -170,7 +170,7 @@ namespace Biblioteca.DAO
                     MessageBox.Show("O campo do e-mail não pode ser vazio", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-               
+
 
 
                 //Cadastrar ou editar
@@ -188,6 +188,7 @@ namespace Biblioteca.DAO
                 }
                 return true;
             }
+
             catch (Exception e)
             {
                 MessageBox.Show("Não foi possível salvar o usuário:\n" + e, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);

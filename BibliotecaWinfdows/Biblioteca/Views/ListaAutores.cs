@@ -1,4 +1,5 @@
-﻿using Biblioteca.Models;
+﻿using Biblioteca.DAO;
+using Biblioteca.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,7 +33,7 @@ namespace Biblioteca.Views
         async void buscarAutores()
         {
             await carregamento1.carregar(true, "Consultando no banco...");
-            Program.autores = await Program.Database.GetAllAutores();
+            Program.autores = await new AutorDAO().GetAllAutores();
             listarAutores();
             await carregamento1.carregar(false, "Finalizando...");
         }
@@ -58,7 +59,7 @@ namespace Biblioteca.Views
             foreach (var item in Program.autores.Where(a => a.Nome.ToUpper().Contains(filtro.ToUpper())))
             {
                 ListViewItem lvi = new ListViewItem();
-                lvi.SubItems.Add(item.Id.ToString());
+                lvi.SubItems.Add(item.Key);
                 lvi.SubItems.Add(item.Nome);
                 listView.Items.Add(lvi);
             }
@@ -73,7 +74,7 @@ namespace Biblioteca.Views
         private async void btnAdicionar_Click(object sender, EventArgs e)
         {
             autor.Nome = txtNome.Text;
-            if(await Program.Database.SalvarAutor(autor))
+            if(await new AutorDAO().SalvarAutor(autor))
             {
                 buscarAutores();
             }
@@ -93,7 +94,7 @@ namespace Biblioteca.Views
         private void btnEditar_Click(object sender, EventArgs e)
         {
             btnAdicionar.Text = "Alterar";
-            autor.Id = int.Parse(listView.CheckedItems[0].SubItems[1].Text);
+            autor.Key = listView.CheckedItems[0].SubItems[1].Text;
             autor.Nome = listView.CheckedItems[0].SubItems[2].Text;
 
             txtNome.Text = autor.Nome;

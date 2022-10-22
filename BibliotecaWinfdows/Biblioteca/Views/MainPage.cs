@@ -41,7 +41,7 @@ namespace Biblioteca.Views
             if (Program.autores.Count == 0)
             {
                 await carregamento1.carregar(true, $"Buscando autores...");
-                Program.autores = await Program.Database.GetAllAutores();
+                Program.autores =  await new AutorDAO().GetAllAutores();
             }
             BuscarBanco();
         }

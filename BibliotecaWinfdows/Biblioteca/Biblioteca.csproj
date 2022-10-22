@@ -107,6 +107,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\AutorDAO.cs" />
+    <Compile Include="DAO\LocacaoDAO.cs" />
     <Compile Include="DAO\RegistroDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="Data\BibliotecaDataBase.cs" />

@@ -73,7 +73,7 @@ namespace Biblioteca.Views
             listView.Items.Clear();
             foreach (var item in listLivros)
             {
-                Autor autor = Program.autores.Where(a => a.Id == item.AutorID).FirstOrDefault();
+                Autor autor = Program.autores.Where(a => a.Key == item.AutorKey).FirstOrDefault();
                 ListViewItem lvi = new ListViewItem();
                 lvi.SubItems[0].Text=(item.Nome);
                 lvi.SubItems.Add(item.Edicao.ToString());
