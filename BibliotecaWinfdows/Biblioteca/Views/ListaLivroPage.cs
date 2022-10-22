@@ -40,7 +40,7 @@ namespace Biblioteca.Views
         {
             if(Program.livros.Count  == 0)
             {
-                Program.livros = await Program.Database.GetLivros();
+                Program.livros = await new LivroDAO().GetLivros();
             }
             if (Program.autores.Count == 0)
             {
@@ -88,8 +88,8 @@ namespace Biblioteca.Views
             
             for (int i = 0; i < listView.CheckedItems.Count; i++)
             {
-                int id = int.Parse(listView.CheckedItems[i].SubItems[1].Text);
-                var temp = Program.livros.FirstOrDefault(l => l.ID == id);
+                string key = listView.CheckedItems[i].Name;
+                var temp = Program.livros.FirstOrDefault(l => l.Key == key);
                 if (listView.CheckedItems[i].Checked)
                 {
                     if (temp != null && !livrosSelecionados.Contains(temp))
@@ -100,8 +100,8 @@ namespace Biblioteca.Views
             }
             for(int i = 0; i < listView.Items.Count; i++)
             {
-                int id = int.Parse(listView.Items[i].SubItems[1].Text);
-                var temp = Program.livros.FirstOrDefault(l => l.ID == id);
+                string key = listView.Items[i].Name;
+                var temp = Program.livros.FirstOrDefault(l => l.Key == key);
                 if (!listView.Items[i].Checked)
                 {
                     if (livrosSelecionados.Contains(temp))
@@ -121,15 +121,15 @@ namespace Biblioteca.Views
             {
                 Autor autor = Program.autores.Where(a => a.Key == item.AutorKey).FirstOrDefault();
                 ListViewItem lvi = new ListViewItem();
-                lvi.SubItems.Add(item.ID.ToString());
+                lvi.Name = item.Key;
                 lvi.SubItems.Add(item.Nome);
-                int qtdDisponivel = item.QuantidadeTotal - await Program.Database.QuantidadeLocado(item.ID);
+                int qtdDisponivel = item.QuantidadeTotal - await Program.Database.QuantidadeLocado(item.Key);
                 lvi.SubItems.Add(qtdDisponivel.ToString());
                 lvi.SubItems.Add(autor.Nome);
                 lvi.SubItems.Add(item.Editora);
                 lvi.SubItems.Add(item.Edicao.ToString());
                 lvi.SubItems.Add(item.ISBN.ToString());
-                lvi.Checked = livrosSelecionados.FirstOrDefault(l=>l.ID == item.ID) != null;
+                lvi.Checked = livrosSelecionados.FirstOrDefault(l=>l.Key == item.Key) != null;
                 listView.Items.Add(lvi);
             }
             EscreverQuantidade();
@@ -149,7 +149,7 @@ namespace Biblioteca.Views
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            CadastroLivro cadastroLivro = new CadastroLivro(int.Parse(listView.CheckedItems[0].SubItems[1].Text));
+            CadastroLivro cadastroLivro = new CadastroLivro(listView.CheckedItems[0].Name);
             cadastroLivro.ShowDialog();
             listarLivros();
         }
@@ -166,14 +166,14 @@ namespace Biblioteca.Views
 
         private async void btnRemover_Click(object sender, EventArgs e)
         {
-            List<int> ids= new List<int>();
+            List<string> Keys= new List<string>();
             for(int i = 0; i < listView.CheckedItems.Count; i++)
             {
-                ids.Add(int.Parse(listView.CheckedItems[i].SubItems[1].Text));
+                Keys.Add(listView.CheckedItems[i].Name);
             }
-            if (await Program.Database.RemoverLivros(ids))
+            if (await new LivroDAO().RemoverLivros(Keys))
             {
-                Program.livros = await Program.Database.GetLivros();
+                Program.livros = await new LivroDAO().GetLivros();
                 listarLivros();
                 
             }

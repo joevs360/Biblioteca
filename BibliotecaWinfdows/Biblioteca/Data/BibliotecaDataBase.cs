@@ -17,8 +17,6 @@ namespace Biblioteca.Data
         {
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<Locacao>().Wait();
-            database.CreateTableAsync<Livro>().Wait();
-            database.CreateTableAsync<Autor>().Wait();
             database.CreateTableAsync<Porta>().Wait();
         }
         //Delete geral
@@ -56,9 +54,9 @@ namespace Biblioteca.Data
 
        
         //Locação
-        public async Task<List<Locacao>> GetLocacoesPorLivro(int idLivro)
+        public async Task<List<Locacao>> GetLocacoesPorLivro(string LivroKey)
         {
-            return await database.Table<Locacao>().Where(l => l.LivroID == idLivro).ToListAsync();
+            return await database.Table<Locacao>().Where(l => l.Livrokey == LivroKey).ToListAsync();
         }
         public async Task<List<Locacao>> GetLocacoes()
         {
@@ -68,9 +66,9 @@ namespace Biblioteca.Data
         {
             return await database.Table<Locacao>().Where(l => l.dataInicio.Date == data.Date).ToListAsync();
         }
-        public async Task<int> QuantidadeLocado(int idLivro)
+        public async Task<int> QuantidadeLocado(string LivroKey)
         {
-           return await database.Table<Locacao>().Where(l => l.LivroID == idLivro).CountAsync();
+           return await database.Table<Locacao>().Where(l => l.Livrokey == LivroKey).CountAsync();
         }
         public async Task<bool> AtualizarLocacao(Locacao locacao)
         {
@@ -87,14 +85,14 @@ namespace Biblioteca.Data
             {
                 Locacao locacao = new Locacao();
                 locacao.dataInicio = DateTime.Now;
-                locacao.LivroID = livro.ID;
+                locacao.Livrokey = livro.Key;
                 locacao.UsuarioKey = usuario.Key;
 
-                int qtdLocado = await QuantidadeLocado(livro.ID);
+                int qtdLocado = await QuantidadeLocado(livro.Key);
                 
                 //Validações
                
-                if (locacao.LivroID==0)
+                if (string.IsNullOrEmpty(locacao.Livrokey))
                 {
                     MessageBox.Show("Nenhum livro selecionado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
@@ -137,12 +135,12 @@ namespace Biblioteca.Data
             }
             
         }
-        public async Task<bool> RemoverLocacoesPorLivro(int id)
+        public async Task<bool> RemoverLocacoesPorLivro(string livrokey)
         {
             try
             {
                 bool resp = true;
-                var locacoes = await GetLocacoesPorLivro(id);
+                var locacoes = await GetLocacoesPorLivro(livrokey);
                 foreach (var l in locacoes)
                 {
                     if (l.dataDevolucao != null)
@@ -156,7 +154,7 @@ namespace Biblioteca.Data
                 }
                 if (!resp)
                 {
-                    MessageBox.Show($"Não é possivel deletar todas locações do livro {Program.livros.FirstOrDefault(l=>l.ID==id).Nome} pois algumas estão em aberto!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Não é possivel deletar todas locações do livro {Program.livros.FirstOrDefault(l=>l.Key==livrokey).Nome} pois algumas estão em aberto!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 return resp;
             }
@@ -166,108 +164,6 @@ namespace Biblioteca.Data
                 return false;
             }
          
-        }
-
-        //Autor
-        //public async task<list<autor>> getallautores()
-        //{
-        //    return await database.table<autor>().tolistasync();
-        //}
-        //public async task<bool> salvarautor(autor autor)
-        //{
-        //    try
-        //    {
-        //        if (string.isnullorempty(autor.nome))
-        //        {
-        //            messagebox.show("nome não pode ser em branco!", "aviso", messageboxbuttons.ok, messageboxicon.error);
-        //            return false;
-        //        }
-
-        //        //cadastrar ou editar
-        //        if (autor.id == 0)
-        //        {
-        //            await database.insertasync(autor);
-        //            messagebox.show("autor cadastrado com sucesso!", "aviso");
-        //        }
-        //        else
-        //        {
-        //            await database.updateasync(autor);
-        //            messagebox.show("autor alterado com sucesso!", "aviso");
-        //        }
-        //        return true;
-        //    }
-        //    catch (exception)
-        //    {
-        //        messagebox.show("não foi possível salvar o autor", "aviso", messageboxbuttons.ok, messageboxicon.error);
-        //        return false;
-        //    }
-
-        //}
-
-        //Livro
-        public async Task<bool> SalvarLivro(Livro livro)
-        {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(livro.Nome))
-                {
-                    MessageBox.Show("O título não pode ser em branco", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-                if (livro.Edicao <= 0)
-                {
-                    MessageBox.Show("A edição tem que ser maior que zero", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-                if(livro.AutorKey == null)
-                {
-                    MessageBox.Show("Nenhum autor foi selecionado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-
-                if (livro.ID == 0)
-                {
-                    await database.InsertAsync(livro);
-                }
-                else
-                {
-                    await database.UpdateAsync(livro);
-                    MessageBox.Show("Salvo com sucesso!", "Aviso");
-                }
-                return true;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Não foi possível salvar o livro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-        public async Task<Livro> GetLivro(int id)
-        {
-            return await database.Table<Livro>().FirstAsync(l => l.ID == id);
-        }
-        public async Task<List<Livro>> GetLivros()
-        {
-            return await database.Table<Livro>().ToListAsync();
-        }
-        public async Task<bool> RemoverLivros(List<int> ids)
-        {
-            if (MessageBox.Show($"Deseja deletar o {ids.Count} livros", "Aviso", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                foreach (var id in ids)
-                {
-                   Livro livro = await GetLivro(id);
-                    if (livro != null) {
-                        //Remover locações 
-                         if (await RemoverLocacoesPorLivro(id))
-                         {
-                           await DeleteAsync(livro);
-                         }
-                    }
-                }
-                return true;
-            }
-            return false;
         }
     }
 }

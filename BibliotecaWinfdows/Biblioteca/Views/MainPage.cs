@@ -36,7 +36,7 @@ namespace Biblioteca.Views
             if (Program.livros.Count == 0)
             {
                 await carregamento1.carregar(true, $"Buscando livros...");
-                Program.livros = await Program.Database.GetLivros();
+                Program.livros = await new LivroDAO().GetLivros();
             }
             if (Program.autores.Count == 0)
             {
@@ -143,7 +143,7 @@ namespace Biblioteca.Views
                 if (!l.notificado)
                 {
                     Usuario usuario = await new UsuarioDAO().GetUsuarioByID(l.UsuarioKey);
-                    Livro livro = await Program.Database.GetLivro(l.LivroID);
+                    Livro livro = await new LivroDAO().GetLivro(l.Livrokey);
                     //Enviar emails 
                     string mensagem = $@"
 Olá {usuario.Nome}
@@ -183,7 +183,7 @@ Esta é uma mensagem automática. Por favor, não responda!
                 {
                     var item = locacoes[i];
                     await carregamento.carregar(true, $"Carregando locação {carregamento.Tag}: {i + 1} de {qtd}");
-                    Livro livro = Program.livros.Where(l => l.ID == item.LivroID).FirstOrDefault();
+                    Livro livro = Program.livros.Where(l => l.Key == item.Livrokey).FirstOrDefault();
                     Usuario aluno = await new UsuarioDAO().GetUsuarioByID(item.UsuarioKey);
 
                     if (livro == null)

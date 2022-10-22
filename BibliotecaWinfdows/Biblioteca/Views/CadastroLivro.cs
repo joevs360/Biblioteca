@@ -21,25 +21,25 @@ namespace Biblioteca.Views
             livro = new Livro();
             Iniciar();
         }
-        public CadastroLivro(int id)
+        public CadastroLivro(string key)
         {
             InitializeComponent();
-            Iniciar(id);
+            Iniciar(key);
         }
-        async void Iniciar(int id = 0)
+        async void Iniciar(string key = "")
         {
             await listarAutores();
-            if (id > 0)
+            if (!string.IsNullOrEmpty(key))
             {
-                buscarLivro(id);
+                buscarLivro(key);
             }
            
         }
        
-        async void buscarLivro(int id)
+        async void buscarLivro(string key)
         {
             await carregamento1.carregar(true, "Buscando...");
-            livro = await Program.Database.GetLivro(id);
+            livro = await new LivroDAO().GetLivro(key);
             if(livro == null)
             {
                 MessageBox.Show("Livro não encontrado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -83,9 +83,9 @@ namespace Biblioteca.Views
             }
             
             await carregamento1.carregar(true, "Salvando alterações...");
-            if (await Program.Database.SalvarLivro(livro))
+            if (await new LivroDAO().SalvarLivro(livro))
             {
-                Program.livros = await Program.Database.GetLivros();
+                Program.livros = await new LivroDAO().GetLivros();
                 this.Close();
             }
             await carregamento1.carregar(false);

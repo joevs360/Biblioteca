@@ -8,5 +8,10 @@ namespace Biblioteca.DAO
 {
     internal class LocacaoDAO
     {
+
+        public async Task<bool> RemoverLocacoesPorLivro(string livrokey)
+        {
+            return true;
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace Biblioteca.Models
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
-        public int LivroID { get; set; }
+        public string Livrokey { get; set; }
         public string UsuarioKey { get; set; }
         public DateTime dataInicio { get; set; }
         public DateTime dataDevolucao { get; set; }

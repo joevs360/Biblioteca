@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colTitulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colQtd = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colAutor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -57,7 +56,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1047, 82);
             this.panel1.TabIndex = 10;
@@ -82,7 +81,6 @@
             this.listView.CheckBoxes = true;
             this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
-            this.colID,
             this.colTitulo,
             this.colQtd,
             this.colAutor,
@@ -92,7 +90,7 @@
             this.listView.GridLines = true;
             this.listView.HideSelection = false;
             this.listView.Location = new System.Drawing.Point(16, 122);
-            this.listView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listView.Margin = new System.Windows.Forms.Padding(4);
             this.listView.Name = "listView";
             this.listView.Size = new System.Drawing.Size(1013, 509);
             this.listView.TabIndex = 18;
@@ -105,10 +103,6 @@
             // 
             this.columnHeader1.Text = "";
             this.columnHeader1.Width = 40;
-            // 
-            // colID
-            // 
-            this.colID.Text = "ID";
             // 
             // colTitulo
             // 
@@ -142,7 +136,7 @@
             // txtBusca
             // 
             this.txtBusca.Location = new System.Drawing.Point(16, 90);
-            this.txtBusca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBusca.Margin = new System.Windows.Forms.Padding(4);
             this.txtBusca.Name = "txtBusca";
             this.txtBusca.Size = new System.Drawing.Size(343, 22);
             this.txtBusca.TabIndex = 19;
@@ -152,7 +146,7 @@
             // 
             this.btnAdicionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdicionar.Location = new System.Drawing.Point(931, 90);
-            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(100, 28);
             this.btnAdicionar.TabIndex = 23;
@@ -164,7 +158,7 @@
             // 
             this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditar.Location = new System.Drawing.Point(715, 90);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(100, 28);
             this.btnEditar.TabIndex = 22;
@@ -177,7 +171,7 @@
             // 
             this.btnRemover.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemover.Location = new System.Drawing.Point(823, 90);
-            this.btnRemover.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRemover.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(100, 28);
             this.btnRemover.TabIndex = 21;
@@ -201,7 +195,7 @@
             // 
             this.btnSelecionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSelecionar.Location = new System.Drawing.Point(931, 90);
-            this.btnSelecionar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSelecionar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSelecionar.Name = "btnSelecionar";
             this.btnSelecionar.Size = new System.Drawing.Size(100, 28);
             this.btnSelecionar.TabIndex = 25;
@@ -214,7 +208,7 @@
             // 
             this.btnBuscar.Image = global::Biblioteca.Properties.Resources.lupa;
             this.btnBuscar.Location = new System.Drawing.Point(368, 90);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(24, 25);
             this.btnBuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -226,7 +220,7 @@
             // 
             this.carregamento1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.carregamento1.Location = new System.Drawing.Point(415, 305);
-            this.carregamento1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.carregamento1.Margin = new System.Windows.Forms.Padding(5);
             this.carregamento1.Name = "carregamento1";
             this.carregamento1.Size = new System.Drawing.Size(193, 151);
             this.carregamento1.TabIndex = 26;
@@ -247,7 +241,7 @@
             this.Controls.Add(this.txtBusca);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(755, 561);
             this.Name = "ListaLivroPage";
             this.Text = "Lista de Livros";
@@ -278,7 +272,6 @@
         private System.Windows.Forms.Button btnSelecionar;
         private System.Windows.Forms.ColumnHeader colEditora;
         private System.Windows.Forms.ColumnHeader colQtd;
-        private System.Windows.Forms.ColumnHeader colID;
         private Carregamento carregamento1;
     }
 }

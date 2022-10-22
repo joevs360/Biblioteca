@@ -57,27 +57,7 @@ namespace Biblioteca.DAO
                 return false;
             }
         }
-        public async Task<bool> RemoverUsuario(List<string> Keys)
-        {
-            try
-            {
-                if (MessageBox.Show($"Deseja deletar o {Keys.Count} autores ", "Aviso", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    foreach (var key in Keys)
-                    {
-                        await fc.Child("Autor").Child(key).DeleteAsync();
-                    }
-                    return true;
-                }
-                return false;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Não foi possivel deletar alguns autores!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-
+       
 
         //Listando os autores
         public async Task<List<Autor>> GetAllAutores()

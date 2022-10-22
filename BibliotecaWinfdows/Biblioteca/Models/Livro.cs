@@ -10,7 +10,7 @@ namespace Biblioteca.Models
     public class Livro
     {
         [PrimaryKey, AutoIncrement]
-        public int ID { get; set; }
+        public string Key { get; set; }
         public string Nome { get; set; }
         public string AutorKey { get; set; }
         public string ISBN { get; set; }
