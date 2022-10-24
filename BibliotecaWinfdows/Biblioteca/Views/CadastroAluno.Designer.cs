@@ -227,10 +227,11 @@
             // carregamento
             // 
             this.carregamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.carregamento.Location = new System.Drawing.Point(161, 119);
+            this.carregamento.Location = new System.Drawing.Point(140, 70);
             this.carregamento.Margin = new System.Windows.Forms.Padding(5);
+            this.carregamento.MinimumSize = new System.Drawing.Size(250, 190);
             this.carregamento.Name = "carregamento";
-            this.carregamento.Size = new System.Drawing.Size(224, 98);
+            this.carregamento.Size = new System.Drawing.Size(250, 190);
             this.carregamento.TabIndex = 9;
             this.carregamento.Visible = false;
             // 

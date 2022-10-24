@@ -133,7 +133,7 @@ namespace Biblioteca.Views
         {
             await carregamento1.carregar(true, $"Buscando locações no banco de dados...");
             await carregamento2.carregar(true, $"Buscando locações no banco de dados...");
-            LocacoesBD = await Program.Database.GetLocacoes();
+            LocacoesBD = await new LocacaoDAO().GetLocacoes();
             var atrasados = LocacoesBD.Where(l => l.dataInicio.AddDays(diaMaximo) <= DateTime.Now).ToList();
             ListarLocacoes(listView1, LocacoesBD.Where(l => l.dataInicio.AddDays(diaMaximo) > DateTime.Now).ToList(), carregamento1);
             ListarLocacoes(listView2, atrasados, carregamento2);
@@ -148,11 +148,11 @@ namespace Biblioteca.Views
                     string mensagem = $@"
 Olá {usuario.Nome}
 
-A devolução do livro deveria ocorrer até o dia {l.dataInicio.AddDays(diaMaximo).ToString("dd/MM/YYYY")}, porém ainda não consta em nosso sistema, por favor verifique
+A devolução do livro deveria ocorrer até o dia {l.dataInicio.AddDays(diaMaximo).ToString("dd/MM/yyyy")}, porém ainda não consta em nosso sistema, por favor verifique
 
 Titulo: {livro.Nome}
 
-Você deve fazer a renovação até o dia {l.dataInicio.AddDays(diaMaximo + 2).ToString("dd/MM/YYYY")}, ou devolvê-lo em nosso balcão.
+Você deve fazer a renovação até o dia {l.dataInicio.AddDays(diaMaximo + 2).ToString("dd/MM/yyyy")}, ou devolvê-lo em nosso balcão.
 
 Caso a biblioteca não esteja aberta no dia indicado, você deve comparecer no primeiro dia de funcionamento após essa data.
 
@@ -163,7 +163,7 @@ Esta é uma mensagem automática. Por favor, não responda!
                     {
                         l.notificado = true;
                         //atualizar notificação
-                        Program.Database.AtualizarLocacao(l);
+                        await new LocacaoDAO().AtualizarLocacaoSemValidacao(l);
                     }
 
                    
@@ -230,7 +230,7 @@ Esta é uma mensagem automática. Por favor, não responda!
         {
             await carregamento1.carregar(false, $"Finalizando a locação");
             await carregamento2.carregar(false, $"Finalizando a locação");
-            if( await Program.Database.RemoverLocacao(locacao))
+            if( await new LocacaoDAO().RemoverLocacao(locacao))
             {
                 BuscarBanco();
             }

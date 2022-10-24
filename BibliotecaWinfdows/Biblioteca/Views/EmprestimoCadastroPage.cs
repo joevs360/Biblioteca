@@ -96,7 +96,7 @@ namespace Biblioteca.Views
             {
                 if (usuario != null)
                 {
-                   if(await Program.Database.SalvarLocacao(usuario, item))
+                   if(await new LocacaoDAO().SalvarLocacao(usuario, item))
                     {
                         temp.Remove(item);
                     }

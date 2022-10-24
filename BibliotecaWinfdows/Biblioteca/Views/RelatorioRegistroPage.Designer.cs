@@ -53,11 +53,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.graficoTemperatura = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.graficoUmidade = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.layoutGraficos = new System.Windows.Forms.TableLayoutPanel();
+            this.carregamento = new Biblioteca.Views.Carregamento();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graficoTemperatura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.graficoUmidade)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.layoutGraficos.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -73,17 +74,19 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(878, 126);
+            this.panel1.Size = new System.Drawing.Size(1171, 155);
             this.panel1.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(12, 52);
+            this.label4.Location = new System.Drawing.Point(16, 64);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 13);
+            this.label4.Size = new System.Drawing.Size(35, 16);
             this.label4.TabIndex = 9;
             this.label4.Text = "Tipo";
             // 
@@ -93,17 +96,19 @@
             this.comboTipo.Items.AddRange(new object[] {
             "Dia",
             "Periodo"});
-            this.comboTipo.Location = new System.Drawing.Point(15, 69);
+            this.comboTipo.Location = new System.Drawing.Point(20, 85);
+            this.comboTipo.Margin = new System.Windows.Forms.Padding(4);
             this.comboTipo.Name = "comboTipo";
-            this.comboTipo.Size = new System.Drawing.Size(121, 21);
+            this.comboTipo.Size = new System.Drawing.Size(160, 24);
             this.comboTipo.TabIndex = 8;
             this.comboTipo.SelectedIndexChanged += new System.EventHandler(this.comboTipo_SelectedIndexChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(15, 96);
+            this.button1.Location = new System.Drawing.Point(20, 118);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 7;
             this.button1.Text = "Consultar";
             this.button1.UseVisualStyleBackColor = true;
@@ -113,34 +118,38 @@
             // 
             this.labelDateFim.AutoSize = true;
             this.labelDateFim.ForeColor = System.Drawing.Color.White;
-            this.labelDateFim.Location = new System.Drawing.Point(359, 54);
+            this.labelDateFim.Location = new System.Drawing.Point(479, 66);
+            this.labelDateFim.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDateFim.Name = "labelDateFim";
-            this.labelDateFim.Size = new System.Drawing.Size(49, 13);
+            this.labelDateFim.Size = new System.Drawing.Size(61, 16);
             this.labelDateFim.TabIndex = 6;
             this.labelDateFim.Text = "Data Fim";
             // 
             // datePickFim
             // 
-            this.datePickFim.Location = new System.Drawing.Point(362, 70);
+            this.datePickFim.Location = new System.Drawing.Point(483, 86);
+            this.datePickFim.Margin = new System.Windows.Forms.Padding(4);
             this.datePickFim.Name = "datePickFim";
-            this.datePickFim.Size = new System.Drawing.Size(211, 20);
+            this.datePickFim.Size = new System.Drawing.Size(280, 22);
             this.datePickFim.TabIndex = 5;
             // 
             // datelabelInicio
             // 
             this.datelabelInicio.AutoSize = true;
             this.datelabelInicio.ForeColor = System.Drawing.Color.White;
-            this.datelabelInicio.Location = new System.Drawing.Point(142, 54);
+            this.datelabelInicio.Location = new System.Drawing.Point(189, 66);
+            this.datelabelInicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.datelabelInicio.Name = "datelabelInicio";
-            this.datelabelInicio.Size = new System.Drawing.Size(58, 13);
+            this.datelabelInicio.Size = new System.Drawing.Size(70, 16);
             this.datelabelInicio.TabIndex = 4;
             this.datelabelInicio.Text = "Data Inicio";
             // 
             // datePickInicio
             // 
-            this.datePickInicio.Location = new System.Drawing.Point(142, 70);
+            this.datePickInicio.Location = new System.Drawing.Point(189, 86);
+            this.datePickInicio.Margin = new System.Windows.Forms.Padding(4);
             this.datePickInicio.Name = "datePickInicio";
-            this.datePickInicio.Size = new System.Drawing.Size(211, 20);
+            this.datePickInicio.Size = new System.Drawing.Size(280, 22);
             this.datePickInicio.TabIndex = 1;
             this.datePickInicio.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -149,9 +158,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(9, 16);
+            this.label1.Location = new System.Drawing.Point(12, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 36);
+            this.label1.Size = new System.Drawing.Size(161, 45);
             this.label1.TabIndex = 0;
             this.label1.Text = "Relatório";
             // 
@@ -164,7 +174,8 @@
             this.graficoTemperatura.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.graficoTemperatura.Legends.Add(legend1);
-            this.graficoTemperatura.Location = new System.Drawing.Point(3, 3);
+            this.graficoTemperatura.Location = new System.Drawing.Point(4, 4);
+            this.graficoTemperatura.Margin = new System.Windows.Forms.Padding(4);
             this.graficoTemperatura.Name = "graficoTemperatura";
             this.graficoTemperatura.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.graficoTemperatura.PaletteCustomColors = new System.Drawing.Color[] {
@@ -193,7 +204,7 @@
             this.graficoTemperatura.Series.Add(series2);
             this.graficoTemperatura.Series.Add(series3);
             this.graficoTemperatura.Series.Add(series4);
-            this.graficoTemperatura.Size = new System.Drawing.Size(847, 192);
+            this.graficoTemperatura.Size = new System.Drawing.Size(1133, 237);
             this.graficoTemperatura.TabIndex = 4;
             this.graficoTemperatura.Text = "Temperatura";
             title1.Name = "Title1";
@@ -209,7 +220,8 @@
             this.graficoUmidade.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.graficoUmidade.Legends.Add(legend2);
-            this.graficoUmidade.Location = new System.Drawing.Point(3, 201);
+            this.graficoUmidade.Location = new System.Drawing.Point(4, 249);
+            this.graficoUmidade.Margin = new System.Windows.Forms.Padding(4);
             this.graficoUmidade.Name = "graficoUmidade";
             this.graficoUmidade.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.graficoUmidade.PaletteCustomColors = new System.Drawing.Color[] {
@@ -238,54 +250,71 @@
             this.graficoUmidade.Series.Add(series6);
             this.graficoUmidade.Series.Add(series7);
             this.graficoUmidade.Series.Add(series8);
-            this.graficoUmidade.Size = new System.Drawing.Size(847, 193);
+            this.graficoUmidade.Size = new System.Drawing.Size(1133, 237);
             this.graficoUmidade.TabIndex = 5;
             this.graficoUmidade.Text = "Umidade";
             title2.Name = "Title1";
             title2.Text = "Umidade (%)";
             this.graficoUmidade.Titles.Add(title2);
             // 
-            // tableLayoutPanel1
+            // layoutGraficos
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.layoutGraficos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.graficoUmidade, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.graficoTemperatura, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 133);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(853, 397);
-            this.tableLayoutPanel1.TabIndex = 21;
+            this.layoutGraficos.ColumnCount = 1;
+            this.layoutGraficos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.layoutGraficos.Controls.Add(this.graficoUmidade, 0, 1);
+            this.layoutGraficos.Controls.Add(this.graficoTemperatura, 0, 0);
+            this.layoutGraficos.Location = new System.Drawing.Point(13, 164);
+            this.layoutGraficos.Margin = new System.Windows.Forms.Padding(4);
+            this.layoutGraficos.Name = "layoutGraficos";
+            this.layoutGraficos.RowCount = 2;
+            this.layoutGraficos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.layoutGraficos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.layoutGraficos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.layoutGraficos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.layoutGraficos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.layoutGraficos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.layoutGraficos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.layoutGraficos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.layoutGraficos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.layoutGraficos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.layoutGraficos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.layoutGraficos.Size = new System.Drawing.Size(1141, 490);
+            this.layoutGraficos.TabIndex = 21;
+            this.layoutGraficos.Visible = false;
+            // 
+            // carregamento
+            // 
+            this.carregamento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.carregamento.Location = new System.Drawing.Point(365, 263);
+            this.carregamento.Margin = new System.Windows.Forms.Padding(4);
+            this.carregamento.MinimumSize = new System.Drawing.Size(251, 191);
+            this.carregamento.Name = "carregamento";
+            this.carregamento.Size = new System.Drawing.Size(368, 250);
+            this.carregamento.TabIndex = 22;
+            this.carregamento.Visible = false;
             // 
             // RelatorioRegistroPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(878, 542);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(1171, 667);
+            this.Controls.Add(this.carregamento);
+            this.Controls.Add(this.layoutGraficos);
             this.Controls.Add(this.panel1);
-            this.MinimumSize = new System.Drawing.Size(700, 450);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(927, 543);
             this.Name = "RelatorioRegistroPage";
             this.Text = "RelatorioRegistroPage";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graficoTemperatura)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.graficoUmidade)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.layoutGraficos.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -303,6 +332,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart graficoUmidade;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboTipo;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel layoutGraficos;
+        private Carregamento carregamento;
     }
 }

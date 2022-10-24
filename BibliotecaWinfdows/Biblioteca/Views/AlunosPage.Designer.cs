@@ -53,7 +53,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1231, 82);
             this.panel1.TabIndex = 9;
@@ -75,7 +75,7 @@
             // 
             this.btnAdicionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdicionar.Location = new System.Drawing.Point(897, 90);
-            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(100, 28);
             this.btnAdicionar.TabIndex = 13;
@@ -87,7 +87,7 @@
             // 
             this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditar.Location = new System.Drawing.Point(1113, 90);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(100, 28);
             this.btnEditar.TabIndex = 12;
@@ -100,7 +100,7 @@
             // 
             this.btnRemover.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemover.Location = new System.Drawing.Point(1005, 90);
-            this.btnRemover.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRemover.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(100, 28);
             this.btnRemover.TabIndex = 11;
@@ -112,7 +112,7 @@
             // txtBusca
             // 
             this.txtBusca.Location = new System.Drawing.Point(11, 92);
-            this.txtBusca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBusca.Margin = new System.Windows.Forms.Padding(4);
             this.txtBusca.Name = "txtBusca";
             this.txtBusca.Size = new System.Drawing.Size(343, 22);
             this.txtBusca.TabIndex = 14;
@@ -133,7 +133,7 @@
             this.listView.GridLines = true;
             this.listView.HideSelection = false;
             this.listView.Location = new System.Drawing.Point(7, 126);
-            this.listView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listView.Margin = new System.Windows.Forms.Padding(4);
             this.listView.Name = "listView";
             this.listView.Size = new System.Drawing.Size(1207, 552);
             this.listView.TabIndex = 16;
@@ -182,7 +182,7 @@
             // 
             this.btnBuscar.Image = global::Biblioteca.Properties.Resources.lupa;
             this.btnBuscar.Location = new System.Drawing.Point(363, 92);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(24, 25);
             this.btnBuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -194,9 +194,10 @@
             // 
             this.carregamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.carregamento.Location = new System.Drawing.Point(479, 334);
-            this.carregamento.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.carregamento.Margin = new System.Windows.Forms.Padding(5);
+            this.carregamento.MinimumSize = new System.Drawing.Size(250, 190);
             this.carregamento.Name = "carregamento";
-            this.carregamento.Size = new System.Drawing.Size(219, 158);
+            this.carregamento.Size = new System.Drawing.Size(250, 190);
             this.carregamento.TabIndex = 20;
             this.carregamento.Visible = false;
             // 
@@ -214,7 +215,7 @@
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnRemover);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(754, 516);
             this.Name = "AlunosPage";
             this.Text = "Lista de Alunos";

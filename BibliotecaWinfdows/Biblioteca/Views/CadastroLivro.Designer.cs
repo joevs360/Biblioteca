@@ -58,7 +58,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(669, 84);
             this.panel1.TabIndex = 4;
@@ -78,7 +78,7 @@
             // btnSalvar
             // 
             this.btnSalvar.Location = new System.Drawing.Point(235, 242);
-            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(100, 28);
             this.btnSalvar.TabIndex = 4;
@@ -102,7 +102,7 @@
             this.panelUsuario.Controls.Add(this.label3);
             this.panelUsuario.Controls.Add(this.txtNome);
             this.panelUsuario.Location = new System.Drawing.Point(16, 91);
-            this.panelUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.panelUsuario.Name = "panelUsuario";
             this.panelUsuario.Size = new System.Drawing.Size(643, 140);
             this.panelUsuario.TabIndex = 3;
@@ -110,10 +110,10 @@
             // carregamento1
             // 
             this.carregamento1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.carregamento1.Location = new System.Drawing.Point(240, 36);
-            this.carregamento1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.carregamento1.Location = new System.Drawing.Point(239, -4);
+            this.carregamento1.Margin = new System.Windows.Forms.Padding(5);
             this.carregamento1.Name = "carregamento1";
-            this.carregamento1.Size = new System.Drawing.Size(148, 101);
+            this.carregamento1.Size = new System.Drawing.Size(188, 151);
             this.carregamento1.TabIndex = 16;
             this.carregamento1.Visible = false;
             // 
@@ -131,7 +131,7 @@
             // txtISBN
             // 
             this.txtISBN.Location = new System.Drawing.Point(473, 100);
-            this.txtISBN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtISBN.Margin = new System.Windows.Forms.Padding(4);
             this.txtISBN.Name = "txtISBN";
             this.txtISBN.Size = new System.Drawing.Size(132, 22);
             this.txtISBN.TabIndex = 14;
@@ -139,7 +139,7 @@
             // txtQtd
             // 
             this.txtQtd.Location = new System.Drawing.Point(304, 100);
-            this.txtQtd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQtd.Margin = new System.Windows.Forms.Padding(4);
             this.txtQtd.Name = "txtQtd";
             this.txtQtd.Size = new System.Drawing.Size(160, 22);
             this.txtQtd.TabIndex = 13;
@@ -162,7 +162,7 @@
             this.selectAutor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.selectAutor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.selectAutor.Location = new System.Drawing.Point(12, 100);
-            this.selectAutor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.selectAutor.Margin = new System.Windows.Forms.Padding(4);
             this.selectAutor.Name = "selectAutor";
             this.selectAutor.Size = new System.Drawing.Size(265, 24);
             this.selectAutor.TabIndex = 11;
@@ -192,7 +192,7 @@
             // txtEditora
             // 
             this.txtEditora.Location = new System.Drawing.Point(396, 36);
-            this.txtEditora.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEditora.Margin = new System.Windows.Forms.Padding(4);
             this.txtEditora.Name = "txtEditora";
             this.txtEditora.Size = new System.Drawing.Size(209, 22);
             this.txtEditora.TabIndex = 8;
@@ -200,7 +200,7 @@
             // txtEdicao
             // 
             this.txtEdicao.Location = new System.Drawing.Point(293, 36);
-            this.txtEdicao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEdicao.Margin = new System.Windows.Forms.Padding(4);
             this.txtEdicao.Name = "txtEdicao";
             this.txtEdicao.Size = new System.Drawing.Size(89, 22);
             this.txtEdicao.TabIndex = 7;
@@ -231,7 +231,7 @@
             // txtNome
             // 
             this.txtNome.Location = new System.Drawing.Point(8, 36);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(4);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(269, 22);
             this.txtNome.TabIndex = 4;
@@ -239,7 +239,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(343, 242);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 5;
@@ -256,7 +256,7 @@
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelUsuario);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(687, 317);
             this.MinimumSize = new System.Drawing.Size(687, 317);
             this.Name = "CadastroLivro";

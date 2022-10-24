@@ -9,8 +9,7 @@ namespace Biblioteca.Models
 {
     public class Locacao
     {
-        [PrimaryKey, AutoIncrement]
-        public int ID { get; set; }
+        public string Key { get; set; }
         public string Livrokey { get; set; }
         public string UsuarioKey { get; set; }
         public DateTime dataInicio { get; set; }

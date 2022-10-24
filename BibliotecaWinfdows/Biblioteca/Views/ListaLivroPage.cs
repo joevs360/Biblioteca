@@ -123,7 +123,7 @@ namespace Biblioteca.Views
                 ListViewItem lvi = new ListViewItem();
                 lvi.Name = item.Key;
                 lvi.SubItems.Add(item.Nome);
-                int qtdDisponivel = item.QuantidadeTotal - await Program.Database.QuantidadeLocado(item.Key);
+                int qtdDisponivel = item.QuantidadeTotal - await new LocacaoDAO().QuantidadeLocado(item.Key);
                 lvi.SubItems.Add(qtdDisponivel.ToString());
                 lvi.SubItems.Add(autor.Nome);
                 lvi.SubItems.Add(item.Editora);

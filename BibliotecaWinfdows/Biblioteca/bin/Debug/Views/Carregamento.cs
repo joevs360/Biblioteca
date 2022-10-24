@@ -23,5 +23,6 @@ namespace Biblioteca.Views
             this.Visible = carregar;
             await Task.Delay(100);
         }
+
     }
 }

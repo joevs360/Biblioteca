@@ -20,13 +20,15 @@ namespace Biblioteca.Views
             comboTipo.SelectedIndex = 0;
             datePickFim.MaxDate = DateTime.Now;
             datePickInicio.MaxDate = DateTime.Now;
-
+            carregamento.carregar(false);
         }
 
         async void AtualizarGraficos()
         {
 
-            //await carregamento1.carregar(true);
+            button1.Enabled = false;
+            layoutGraficos.Visible = false;
+            await carregamento.carregar(true);
             List<Registro> registros = new List<Registro>();
 
             List<Registro> media = new List<Registro>();
@@ -49,6 +51,7 @@ namespace Biblioteca.Views
 
             if (dia)
             {
+                await carregamento.carregar(true, $"Carregando dados do dia {datePickInicio.Value.ToString("dd/MM/yyyy")}...");
                registros = await new RegistroDAO().GetRegistro(datePickInicio.Value);
 
                
@@ -59,6 +62,8 @@ namespace Biblioteca.Views
                 for (int i = 0; i < diferenca.Days+1; i++)
                 {
                     DateTime data = datePickInicio.Value.AddDays(i).Date;
+                    await carregamento.carregar(true, $"Carregando dados do dia {data.ToString("dd/MM/yyyy")}...");
+
                     List<Registro> list = await new RegistroDAO().GetRegistro(data);
 
                     if(list.Count > 0)
@@ -133,9 +138,10 @@ namespace Biblioteca.Views
                     graficoUmidade.Series["Min"].Points.AddXY(texto, min[i].Umidade);
                 }
             }
+            await carregamento.carregar(false);
 
-          //  await carregamento1.carregar(false);
-
+            button1.Enabled = true;
+            layoutGraficos.Visible =  true;
         }
 
         private void comboTipo_SelectedIndexChanged(object sender, EventArgs e)
@@ -154,5 +160,6 @@ namespace Biblioteca.Views
         {
             AtualizarGraficos();
         }
+
     }
 }
