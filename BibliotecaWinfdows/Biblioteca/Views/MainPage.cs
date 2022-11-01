@@ -115,7 +115,7 @@ namespace Biblioteca.Views
         private void RelatorioClick(object sender, EventArgs e)
         {
             RelatorioRegistroPage relatorioRegistroPage = new RelatorioRegistroPage();
-            relatorioRegistroPage.ShowDialog();
+            relatorioRegistroPage.Show();
         }
 
         private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)

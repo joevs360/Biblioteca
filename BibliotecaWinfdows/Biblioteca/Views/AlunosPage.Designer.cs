@@ -53,9 +53,8 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1231, 82);
+            this.panel1.Size = new System.Drawing.Size(923, 67);
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -64,20 +63,18 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 20);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(9, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 45);
+            this.label1.Size = new System.Drawing.Size(100, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Alunos";
             // 
             // btnAdicionar
             // 
             this.btnAdicionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdicionar.Location = new System.Drawing.Point(897, 90);
-            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdicionar.Location = new System.Drawing.Point(673, 73);
             this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(100, 28);
+            this.btnAdicionar.Size = new System.Drawing.Size(75, 23);
             this.btnAdicionar.TabIndex = 13;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
@@ -86,10 +83,9 @@
             // btnEditar
             // 
             this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditar.Location = new System.Drawing.Point(1113, 90);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditar.Location = new System.Drawing.Point(835, 73);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(100, 28);
+            this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 12;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -99,10 +95,9 @@
             // btnRemover
             // 
             this.btnRemover.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRemover.Location = new System.Drawing.Point(1005, 90);
-            this.btnRemover.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRemover.Location = new System.Drawing.Point(754, 73);
             this.btnRemover.Name = "btnRemover";
-            this.btnRemover.Size = new System.Drawing.Size(100, 28);
+            this.btnRemover.Size = new System.Drawing.Size(75, 23);
             this.btnRemover.TabIndex = 11;
             this.btnRemover.Text = "Remover";
             this.btnRemover.UseVisualStyleBackColor = true;
@@ -111,10 +106,9 @@
             // 
             // txtBusca
             // 
-            this.txtBusca.Location = new System.Drawing.Point(11, 92);
-            this.txtBusca.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBusca.Location = new System.Drawing.Point(8, 75);
             this.txtBusca.Name = "txtBusca";
-            this.txtBusca.Size = new System.Drawing.Size(343, 22);
+            this.txtBusca.Size = new System.Drawing.Size(258, 20);
             this.txtBusca.TabIndex = 14;
             this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
             // 
@@ -132,10 +126,9 @@
             this.colTelefone});
             this.listView.GridLines = true;
             this.listView.HideSelection = false;
-            this.listView.Location = new System.Drawing.Point(7, 126);
-            this.listView.Margin = new System.Windows.Forms.Padding(4);
+            this.listView.Location = new System.Drawing.Point(5, 102);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(1207, 552);
+            this.listView.Size = new System.Drawing.Size(906, 449);
             this.listView.TabIndex = 16;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -171,20 +164,18 @@
             // 
             this.txtQuantidade.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtQuantidade.AutoSize = true;
-            this.txtQuantidade.Location = new System.Drawing.Point(7, 682);
-            this.txtQuantidade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.txtQuantidade.Location = new System.Drawing.Point(5, 554);
             this.txtQuantidade.Name = "txtQuantidade";
-            this.txtQuantidade.Size = new System.Drawing.Size(45, 16);
+            this.txtQuantidade.Size = new System.Drawing.Size(39, 13);
             this.txtQuantidade.TabIndex = 19;
             this.txtQuantidade.Text = "0 Itens";
             // 
             // btnBuscar
             // 
             this.btnBuscar.Image = global::Biblioteca.Properties.Resources.lupa;
-            this.btnBuscar.Location = new System.Drawing.Point(363, 92);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Location = new System.Drawing.Point(272, 75);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(24, 25);
+            this.btnBuscar.Size = new System.Drawing.Size(18, 20);
             this.btnBuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnBuscar.TabIndex = 15;
             this.btnBuscar.TabStop = false;
@@ -192,20 +183,20 @@
             // 
             // carregamento
             // 
-            this.carregamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.carregamento.Location = new System.Drawing.Point(479, 334);
-            this.carregamento.Margin = new System.Windows.Forms.Padding(5);
-            this.carregamento.MinimumSize = new System.Drawing.Size(250, 190);
+            this.carregamento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.carregamento.Location = new System.Drawing.Point(354, 263);
             this.carregamento.Name = "carregamento";
-            this.carregamento.Size = new System.Drawing.Size(250, 190);
-            this.carregamento.TabIndex = 20;
+            this.carregamento.Size = new System.Drawing.Size(193, 172);
+            this.carregamento.TabIndex = 21;
             this.carregamento.Visible = false;
             // 
             // AlunosPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1231, 709);
+            this.ClientSize = new System.Drawing.Size(923, 576);
             this.Controls.Add(this.carregamento);
             this.Controls.Add(this.txtQuantidade);
             this.Controls.Add(this.listView);
@@ -215,8 +206,7 @@
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnRemover);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(754, 516);
+            this.MinimumSize = new System.Drawing.Size(570, 427);
             this.Name = "AlunosPage";
             this.Text = "Lista de Alunos";
             this.Load += new System.EventHandler(this.AlunosPage_Load);

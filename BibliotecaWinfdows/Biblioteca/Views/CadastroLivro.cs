@@ -38,7 +38,7 @@ namespace Biblioteca.Views
        
         async void buscarLivro(string key)
         {
-            await carregamento1.carregar(true, "Buscando...");
+            await carregamento.carregar(true, "Buscando...");
             livro = await new LivroDAO().GetLivro(key);
             if(livro == null)
             {
@@ -57,7 +57,7 @@ namespace Biblioteca.Views
                 selectAutor.SelectedIndex = Program.autores.IndexOf(Program.autores.First(a => a.Key == livro.AutorKey));
             }
            
-            await carregamento1.carregar(false);
+            await carregamento.carregar(false);
         }
         async Task listarAutores()
         {
@@ -82,13 +82,13 @@ namespace Biblioteca.Views
                 livro.AutorKey = Program.autores[selectAutor.SelectedIndex].Key;
             }
             
-            await carregamento1.carregar(true, "Salvando alterações...");
+            await carregamento.carregar(true, "Salvando alterações...");
             if (await new LivroDAO().SalvarLivro(livro))
             {
                 Program.livros = await new LivroDAO().GetLivros();
                 this.Close();
             }
-            await carregamento1.carregar(false);
+            await carregamento.carregar(false);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

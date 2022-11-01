@@ -43,18 +43,16 @@
             this.panel1.Controls.Add(this.imgStatus);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(307, 332);
+            this.panel1.Size = new System.Drawing.Size(232, 276);
             this.panel1.TabIndex = 1;
             // 
             // btnReiniciar
             // 
             this.btnReiniciar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnReiniciar.Location = new System.Drawing.Point(0, 304);
-            this.btnReiniciar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReiniciar.Location = new System.Drawing.Point(0, 253);
             this.btnReiniciar.Name = "btnReiniciar";
-            this.btnReiniciar.Size = new System.Drawing.Size(307, 28);
+            this.btnReiniciar.Size = new System.Drawing.Size(232, 23);
             this.btnReiniciar.TabIndex = 2;
             this.btnReiniciar.Text = "Reiniciar";
             this.btnReiniciar.UseVisualStyleBackColor = true;
@@ -65,12 +63,11 @@
             // 
             this.txtStatus.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtStatus.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtStatus.Location = new System.Drawing.Point(0, 209);
-            this.txtStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.txtStatus.MaximumSize = new System.Drawing.Size(315, 105);
-            this.txtStatus.MinimumSize = new System.Drawing.Size(315, 105);
+            this.txtStatus.Location = new System.Drawing.Point(0, 170);
+            this.txtStatus.MaximumSize = new System.Drawing.Size(236, 85);
+            this.txtStatus.MinimumSize = new System.Drawing.Size(236, 85);
             this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(315, 105);
+            this.txtStatus.Size = new System.Drawing.Size(236, 85);
             this.txtStatus.TabIndex = 1;
             this.txtStatus.Text = "Aguardando a leitura do RFID...";
             this.txtStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -80,23 +77,22 @@
             this.imgStatus.Dock = System.Windows.Forms.DockStyle.Top;
             this.imgStatus.Image = global::Biblioteca.Properties.Resources.arduino;
             this.imgStatus.Location = new System.Drawing.Point(0, 0);
-            this.imgStatus.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.imgStatus.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.imgStatus.Name = "imgStatus";
-            this.imgStatus.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.imgStatus.Size = new System.Drawing.Size(307, 209);
+            this.imgStatus.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.imgStatus.Size = new System.Drawing.Size(232, 170);
             this.imgStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgStatus.TabIndex = 0;
             this.imgStatus.TabStop = false;
             // 
             // LeituraRfidPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 332);
+            this.ClientSize = new System.Drawing.Size(232, 276);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MaximumSize = new System.Drawing.Size(325, 379);
-            this.MinimumSize = new System.Drawing.Size(325, 379);
+            this.MaximumSize = new System.Drawing.Size(248, 315);
+            this.MinimumSize = new System.Drawing.Size(248, 315);
             this.Name = "LeituraRfidPage";
             this.Text = "Leitura RFID";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LeituraRfidPage_FormClosed);

@@ -32,7 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.panelUsuario = new System.Windows.Forms.Panel();
-            this.carregamento1 = new Biblioteca.Views.Carregamento();
+            this.carregamento = new Biblioteca.Views.Carregamento();
             this.label7 = new System.Windows.Forms.Label();
             this.txtISBN = new System.Windows.Forms.TextBox();
             this.txtQtd = new System.Windows.Forms.NumericUpDown();
@@ -88,7 +88,7 @@
             // 
             // panelUsuario
             // 
-            this.panelUsuario.Controls.Add(this.carregamento1);
+            this.panelUsuario.Controls.Add(this.carregamento);
             this.panelUsuario.Controls.Add(this.label7);
             this.panelUsuario.Controls.Add(this.txtISBN);
             this.panelUsuario.Controls.Add(this.txtQtd);
@@ -109,13 +109,13 @@
             // 
             // carregamento1
             // 
-            this.carregamento1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.carregamento1.Location = new System.Drawing.Point(239, -4);
-            this.carregamento1.Margin = new System.Windows.Forms.Padding(5);
-            this.carregamento1.Name = "carregamento1";
-            this.carregamento1.Size = new System.Drawing.Size(188, 151);
-            this.carregamento1.TabIndex = 16;
-            this.carregamento1.Visible = false;
+            this.carregamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.carregamento.Location = new System.Drawing.Point(239, -4);
+            this.carregamento.Margin = new System.Windows.Forms.Padding(5);
+            this.carregamento.Name = "carregamento";
+            this.carregamento.Size = new System.Drawing.Size(188, 151);
+            this.carregamento.TabIndex = 16;
+            this.carregamento.Visible = false;
             // 
             // label7
             // 
@@ -290,6 +290,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtISBN;
         private System.Windows.Forms.Button btnCancelar;
-        private Carregamento carregamento1;
+        private Carregamento carregamento;
     }
 }
